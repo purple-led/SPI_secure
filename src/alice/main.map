@@ -1,0 +1,655 @@
+Archive member included because of file (symbol)
+
+/usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+                              /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o (exit)
+/usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+                              main.o (__do_copy_data)
+/usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+                              main.o (__do_clear_bss)
+/usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/libc.a(memcpy.o)
+                              ../aes/aes_keyschedule.o (memcpy)
+
+Allocating common symbols
+Common symbol       size              file
+
+ctx                 0xb0              main.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00002000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+LOAD main.o
+LOAD ../aes/aes128_dec.o
+LOAD ../aes/aes128_enc.o
+LOAD ../aes/aes192_dec.o
+LOAD ../aes/aes192_enc.o
+LOAD ../aes/aes256_dec.o
+LOAD ../aes/aes256_enc.o
+LOAD ../aes/aes_dec.o
+LOAD ../aes/aes_enc.o
+LOAD ../aes/aes_invsbox.o
+LOAD ../aes/aes_keyschedule.o
+LOAD ../aes/aes_sbox.o
+LOAD ../aes/gf256mul.o
+LOAD /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/libm.a
+LOAD /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a
+LOAD /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/libc.a
+LOAD /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0xae6
+ *(.vectors)
+ .vectors       0x00000000       0x2a /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data  0x0000002a      0x100 ../aes/aes_invsbox.o
+                0x0000002a                aes_invsbox
+ .progmem.data  0x0000012a        0xa ../aes/aes_keyschedule.o
+                0x0000012a                rc_tab
+ .progmem.data  0x00000134      0x100 ../aes/aes_sbox.o
+                0x00000134                aes_sbox
+                0x00000234                . = ALIGN (0x2)
+                0x00000234                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000234        0x0 linker stubs
+ *(.trampolines*)
+                0x00000234                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000234                __ctors_start = .
+ *(.ctors)
+                0x00000234                __ctors_end = .
+                0x00000234                __dtors_start = .
+ *(.dtors)
+                0x00000234                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000234        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+                0x00000234                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000234        0xc /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000240       0x16 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+                0x00000240                __do_copy_data
+ .init4         0x00000256       0x10 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+                0x00000256                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000266        0x4 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+ *(.init9)
+ *(.text)
+ .text          0x0000026a        0x2 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+                0x0000026a                __vector_1
+                0x0000026a                __vector_12
+                0x0000026a                __bad_interrupt
+                0x0000026a                __vector_6
+                0x0000026a                __vector_3
+                0x0000026a                __vector_11
+                0x0000026a                __vector_13
+                0x0000026a                __vector_17
+                0x0000026a                __vector_19
+                0x0000026a                __vector_7
+                0x0000026a                __vector_5
+                0x0000026a                __vector_4
+                0x0000026a                __vector_9
+                0x0000026a                __vector_2
+                0x0000026a                __vector_15
+                0x0000026a                __vector_8
+                0x0000026a                __vector_14
+                0x0000026a                __vector_10
+                0x0000026a                __vector_16
+                0x0000026a                __vector_18
+                0x0000026a                __vector_20
+ .text          0x0000026c       0x68 main.o
+                0x0000026c                init
+                0x0000028c                main
+ .text          0x000002d4        0x6 ../aes/aes128_dec.o
+                0x000002d4                aes128_dec
+ .text          0x000002da        0x6 ../aes/aes128_enc.o
+                0x000002da                aes128_enc
+ .text          0x000002e0        0x6 ../aes/aes192_dec.o
+                0x000002e0                aes192_dec
+ .text          0x000002e6        0x6 ../aes/aes192_enc.o
+                0x000002e6                aes192_enc
+ .text          0x000002ec        0x6 ../aes/aes256_dec.o
+                0x000002ec                aes256_dec
+ .text          0x000002f2        0x6 ../aes/aes256_enc.o
+                0x000002f2                aes256_enc
+ .text          0x000002f8      0x344 ../aes/aes_dec.o
+                0x000002f8                aes_invshiftcol
+                0x000005be                aes_invshiftrow
+                0x00000390                aes_decrypt_core
+ .text          0x0000063c      0x28e ../aes/aes_enc.o
+                0x0000063c                aes_shiftcol
+                0x000006c8                aes_encrypt_core
+ .text          0x000008ca        0x0 ../aes/aes_invsbox.o
+ .text          0x000008ca      0x1ec ../aes/aes_keyschedule.o
+                0x00000aa2                aes192_init
+                0x00000aac                aes128_init
+                0x00000a98                aes256_init
+                0x000008ca                aes_init
+ .text          0x00000ab6        0x0 ../aes/aes_sbox.o
+ .text          0x00000ab6       0x1a ../aes/gf256mul.o
+                0x00000ab6                gf256mul
+ .text          0x00000ad0        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .text          0x00000ad0        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .text          0x00000ad0        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+ .text          0x00000ad0        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/libc.a(memcpy.o)
+                0x00000ad0                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00000ad0        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .text.libgcc   0x00000ad0        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000ad0        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+ .text.avr-libc
+                0x00000ad0       0x12 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/libc.a(memcpy.o)
+                0x00000ad0                memcpy
+                0x00000ae2                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000ae2        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+                0x00000ae2                exit
+                0x00000ae2                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000ae2        0x4 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000ae6                _etext = .
+
+.data           0x00800060       0x20 load address 0x00000ae6
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+ .data          0x00800060       0x20 main.o
+                0x00800070                data
+                0x00800060                key
+ .data          0x00800080        0x0 ../aes/aes128_dec.o
+ .data          0x00800080        0x0 ../aes/aes128_enc.o
+ .data          0x00800080        0x0 ../aes/aes192_dec.o
+ .data          0x00800080        0x0 ../aes/aes192_enc.o
+ .data          0x00800080        0x0 ../aes/aes256_dec.o
+ .data          0x00800080        0x0 ../aes/aes256_enc.o
+ .data          0x00800080        0x0 ../aes/aes_dec.o
+ .data          0x00800080        0x0 ../aes/aes_enc.o
+ .data          0x00800080        0x0 ../aes/aes_invsbox.o
+ .data          0x00800080        0x0 ../aes/aes_keyschedule.o
+ .data          0x00800080        0x0 ../aes/aes_sbox.o
+ .data          0x00800080        0x0 ../aes/gf256mul.o
+ .data          0x00800080        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .data          0x00800080        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .data          0x00800080        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+ .data          0x00800080        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/libc.a(memcpy.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800080                . = ALIGN (0x2)
+                0x00800080                _edata = .
+                0x00800080                PROVIDE (__data_end, .)
+
+.bss            0x00800080       0xb0
+                0x00800080                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800080        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+ .bss           0x00800080        0x0 main.o
+ .bss           0x00800080        0x0 ../aes/aes128_dec.o
+ .bss           0x00800080        0x0 ../aes/aes128_enc.o
+ .bss           0x00800080        0x0 ../aes/aes192_dec.o
+ .bss           0x00800080        0x0 ../aes/aes192_enc.o
+ .bss           0x00800080        0x0 ../aes/aes256_dec.o
+ .bss           0x00800080        0x0 ../aes/aes256_enc.o
+ .bss           0x00800080        0x0 ../aes/aes_dec.o
+ .bss           0x00800080        0x0 ../aes/aes_enc.o
+ .bss           0x00800080        0x0 ../aes/aes_invsbox.o
+ .bss           0x00800080        0x0 ../aes/aes_keyschedule.o
+ .bss           0x00800080        0x0 ../aes/aes_sbox.o
+ .bss           0x00800080        0x0 ../aes/gf256mul.o
+ .bss           0x00800080        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .bss           0x00800080        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .bss           0x00800080        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+ .bss           0x00800080        0x0 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/libc.a(memcpy.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800080       0xb0 main.o
+                0x00800080                ctx
+                0x00800130                PROVIDE (__bss_end, .)
+                0x00000ae6                __data_load_start = LOADADDR (.data)
+                0x00000b06                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800130        0x0
+                0x00800130                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800130                PROVIDE (__noinit_end, .)
+                0x00800130                _end = .
+                0x00800130                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000      0x7ec
+ *(.stab)
+ .stab          0x00000000      0x6b4 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+ .stab          0x000006b4       0xb4 ../aes/gf256mul.o
+                                 0xc0 (size before relaxing)
+ .stab          0x00000768       0x84 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/libc.a(memcpy.o)
+                                 0x90 (size before relaxing)
+
+.stabstr        0x00000000      0x12d
+ *(.stabstr)
+ .stabstr       0x00000000      0x12d /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x140
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 main.o
+ .debug_aranges
+                0x00000020       0x20 ../aes/aes128_dec.o
+ .debug_aranges
+                0x00000040       0x20 ../aes/aes128_enc.o
+ .debug_aranges
+                0x00000060       0x20 ../aes/aes192_dec.o
+ .debug_aranges
+                0x00000080       0x20 ../aes/aes192_enc.o
+ .debug_aranges
+                0x000000a0       0x20 ../aes/aes256_dec.o
+ .debug_aranges
+                0x000000c0       0x20 ../aes/aes256_enc.o
+ .debug_aranges
+                0x000000e0       0x20 ../aes/aes_dec.o
+ .debug_aranges
+                0x00000100       0x20 ../aes/aes_enc.o
+ .debug_aranges
+                0x00000120       0x20 ../aes/aes_keyschedule.o
+
+.debug_pubnames
+                0x00000000      0x225
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x3d main.o
+ .debug_pubnames
+                0x0000003d       0x21 ../aes/aes128_dec.o
+ .debug_pubnames
+                0x0000005e       0x21 ../aes/aes128_enc.o
+ .debug_pubnames
+                0x0000007f       0x21 ../aes/aes192_dec.o
+ .debug_pubnames
+                0x000000a0       0x21 ../aes/aes192_enc.o
+ .debug_pubnames
+                0x000000c1       0x21 ../aes/aes256_dec.o
+ .debug_pubnames
+                0x000000e2       0x21 ../aes/aes256_enc.o
+ .debug_pubnames
+                0x00000103       0x4f ../aes/aes_dec.o
+ .debug_pubnames
+                0x00000152       0x38 ../aes/aes_enc.o
+ .debug_pubnames
+                0x0000018a       0x22 ../aes/aes_invsbox.o
+ .debug_pubnames
+                0x000001ac       0x5a ../aes/aes_keyschedule.o
+ .debug_pubnames
+                0x00000206       0x1f ../aes/aes_sbox.o
+
+.debug_info     0x00000000     0x1621
+ *(.debug_info)
+ .debug_info    0x00000000      0x23e main.o
+ .debug_info    0x0000023e      0x135 ../aes/aes128_dec.o
+ .debug_info    0x00000373      0x135 ../aes/aes128_enc.o
+ .debug_info    0x000004a8      0x135 ../aes/aes192_dec.o
+ .debug_info    0x000005dd      0x135 ../aes/aes192_enc.o
+ .debug_info    0x00000712      0x135 ../aes/aes256_dec.o
+ .debug_info    0x00000847      0x135 ../aes/aes256_enc.o
+ .debug_info    0x0000097c      0x383 ../aes/aes_dec.o
+ .debug_info    0x00000cff      0x307 ../aes/aes_enc.o
+ .debug_info    0x00001006       0x96 ../aes/aes_invsbox.o
+ .debug_info    0x0000109c      0x4ef ../aes/aes_keyschedule.o
+ .debug_info    0x0000158b       0x96 ../aes/aes_sbox.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0xb4a
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x18c main.o
+ .debug_abbrev  0x0000018c       0xb3 ../aes/aes128_dec.o
+ .debug_abbrev  0x0000023f       0xb3 ../aes/aes128_enc.o
+ .debug_abbrev  0x000002f2       0xb3 ../aes/aes192_dec.o
+ .debug_abbrev  0x000003a5       0xb3 ../aes/aes192_enc.o
+ .debug_abbrev  0x00000458       0xb3 ../aes/aes256_dec.o
+ .debug_abbrev  0x0000050b       0xb3 ../aes/aes256_enc.o
+ .debug_abbrev  0x000005be      0x195 ../aes/aes_dec.o
+ .debug_abbrev  0x00000753      0x186 ../aes/aes_enc.o
+ .debug_abbrev  0x000008d9       0x6a ../aes/aes_invsbox.o
+ .debug_abbrev  0x00000943      0x19d ../aes/aes_keyschedule.o
+ .debug_abbrev  0x00000ae0       0x6a ../aes/aes_sbox.o
+
+.debug_line     0x00000000      0xf42
+ *(.debug_line)
+ .debug_line    0x00000000      0x21e main.o
+ .debug_line    0x0000021e       0xdf ../aes/aes128_dec.o
+ .debug_line    0x000002fd       0xdf ../aes/aes128_enc.o
+ .debug_line    0x000003dc       0xdf ../aes/aes192_dec.o
+ .debug_line    0x000004bb       0xdf ../aes/aes192_enc.o
+ .debug_line    0x0000059a       0xdf ../aes/aes256_dec.o
+ .debug_line    0x00000679       0xdf ../aes/aes256_enc.o
+ .debug_line    0x00000758      0x277 ../aes/aes_dec.o
+ .debug_line    0x000009cf      0x21a ../aes/aes_enc.o
+ .debug_line    0x00000be9       0xae ../aes/aes_invsbox.o
+ .debug_line    0x00000c97      0x200 ../aes/aes_keyschedule.o
+ .debug_line    0x00000e97       0xab ../aes/aes_sbox.o
+
+.debug_frame    0x00000000      0x1b0
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x30 main.o
+ .debug_frame   0x00000030       0x20 ../aes/aes128_dec.o
+ .debug_frame   0x00000050       0x20 ../aes/aes128_enc.o
+ .debug_frame   0x00000070       0x20 ../aes/aes192_dec.o
+ .debug_frame   0x00000090       0x20 ../aes/aes192_enc.o
+ .debug_frame   0x000000b0       0x20 ../aes/aes256_dec.o
+ .debug_frame   0x000000d0       0x20 ../aes/aes256_enc.o
+ .debug_frame   0x000000f0       0x40 ../aes/aes_dec.o
+ .debug_frame   0x00000130       0x30 ../aes/aes_enc.o
+ .debug_frame   0x00000160       0x50 ../aes/aes_keyschedule.o
+
+.debug_str      0x00000000      0x390
+ *(.debug_str)
+ .debug_str     0x00000000      0x10e main.o
+                                0x147 (size before relaxing)
+ .debug_str     0x0000010e       0x26 ../aes/aes128_dec.o
+                                 0xe8 (size before relaxing)
+ .debug_str     0x00000134       0x1f ../aes/aes128_enc.o
+                                 0xe8 (size before relaxing)
+ .debug_str     0x00000153       0x2c ../aes/aes192_dec.o
+                                 0xe8 (size before relaxing)
+ .debug_str     0x0000017f       0x1f ../aes/aes192_enc.o
+                                 0xe8 (size before relaxing)
+ .debug_str     0x0000019e       0x2c ../aes/aes256_dec.o
+                                 0xe8 (size before relaxing)
+ .debug_str     0x000001ca       0x1f ../aes/aes256_enc.o
+                                 0xe8 (size before relaxing)
+ .debug_str     0x000001e9       0xb4 ../aes/aes_dec.o
+                                0x177 (size before relaxing)
+ .debug_str     0x0000029d       0x58 ../aes/aes_enc.o
+                                0x160 (size before relaxing)
+ .debug_str     0x000002f5       0x15 ../aes/aes_invsbox.o
+                                 0xc7 (size before relaxing)
+ .debug_str     0x0000030a       0x74 ../aes/aes_keyschedule.o
+                                0x181 (size before relaxing)
+ .debug_str     0x0000037e       0x12 ../aes/aes_sbox.o
+                                 0xc1 (size before relaxing)
+
+.debug_loc      0x00000000      0x6e7
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x28 main.o
+ .debug_loc     0x00000028       0x30 ../aes/aes128_dec.o
+ .debug_loc     0x00000058       0x30 ../aes/aes128_enc.o
+ .debug_loc     0x00000088       0x30 ../aes/aes192_dec.o
+ .debug_loc     0x000000b8       0x30 ../aes/aes192_enc.o
+ .debug_loc     0x000000e8       0x30 ../aes/aes256_dec.o
+ .debug_loc     0x00000118       0x30 ../aes/aes256_enc.o
+ .debug_loc     0x00000148      0x1a2 ../aes/aes_dec.o
+ .debug_loc     0x000002ea      0x119 ../aes/aes_enc.o
+ .debug_loc     0x00000403      0x2e4 ../aes/aes_keyschedule.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(main.elf elf32-avr)
+LOAD linker stubs
+
+.debug_ranges   0x00000000      0x128
+ .debug_ranges  0x00000000       0x48 main.o
+ .debug_ranges  0x00000048       0x60 ../aes/aes_dec.o
+ .debug_ranges  0x000000a8       0x50 ../aes/aes_enc.o
+ .debug_ranges  0x000000f8       0x30 ../aes/aes_keyschedule.o
+
+Cross Reference Table
+
+Symbol                                            File
+__bad_interrupt                                   /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__bss_end                                         /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+__bss_start                                       /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+__data_end                                        /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+__data_load_start                                 /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+__data_start                                      /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+__do_clear_bss                                    /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+                                                  main.o
+__do_copy_data                                    /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+                                                  main.o
+__heap_end                                        /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__init                                            /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__stack                                           /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_1                                        /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_10                                       /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_11                                       /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_12                                       /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_13                                       /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_14                                       /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_15                                       /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_16                                       /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_17                                       /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_18                                       /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_19                                       /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_2                                        /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_20                                       /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_3                                        /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_4                                        /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_5                                        /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_6                                        /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_7                                        /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_8                                        /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_9                                        /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vector_default                                  /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+__vectors                                         /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+_exit                                             /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+aes128_dec                                        ../aes/aes128_dec.o
+aes128_enc                                        ../aes/aes128_enc.o
+                                                  main.o
+aes128_init                                       ../aes/aes_keyschedule.o
+                                                  main.o
+aes192_dec                                        ../aes/aes192_dec.o
+aes192_enc                                        ../aes/aes192_enc.o
+aes192_init                                       ../aes/aes_keyschedule.o
+aes256_dec                                        ../aes/aes256_dec.o
+aes256_enc                                        ../aes/aes256_enc.o
+aes256_init                                       ../aes/aes_keyschedule.o
+aes_decrypt_core                                  ../aes/aes_dec.o
+                                                  ../aes/aes256_dec.o
+                                                  ../aes/aes192_dec.o
+                                                  ../aes/aes128_dec.o
+aes_encrypt_core                                  ../aes/aes_enc.o
+                                                  ../aes/aes256_enc.o
+                                                  ../aes/aes192_enc.o
+                                                  ../aes/aes128_enc.o
+aes_init                                          ../aes/aes_keyschedule.o
+aes_invsbox                                       ../aes/aes_invsbox.o
+                                                  ../aes/aes_dec.o
+aes_invshiftcol                                   ../aes/aes_dec.o
+aes_invshiftrow                                   ../aes/aes_dec.o
+aes_sbox                                          ../aes/aes_sbox.o
+                                                  ../aes/aes_keyschedule.o
+                                                  ../aes/aes_enc.o
+aes_shiftcol                                      ../aes/aes_enc.o
+ctx                                               main.o
+data                                              main.o
+exit                                              /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+                                                  /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+gf256mul                                          ../aes/gf256mul.o
+                                                  ../aes/aes_enc.o
+                                                  ../aes/aes_dec.o
+init                                              main.o
+key                                               main.o
+main                                              main.o
+                                                  /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8535.o
+memcpy                                            /usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/libc.a(memcpy.o)
+                                                  ../aes/aes_keyschedule.o
+rc_tab                                            ../aes/aes_keyschedule.o

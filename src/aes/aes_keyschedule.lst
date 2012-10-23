@@ -1,0 +1,480 @@
+   1               		.file	"aes_keyschedule.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	aes_init
+  18               	aes_init:
+  19               	.LFB3:
+  20               	.LM1:
+  21               	.LVL0:
+  22 0000 2F92      		push r2
+  23 0002 3F92      		push r3
+  24 0004 4F92      		push r4
+  25 0006 5F92      		push r5
+  26 0008 6F92      		push r6
+  27 000a 7F92      		push r7
+  28 000c 8F92      		push r8
+  29 000e 9F92      		push r9
+  30 0010 AF92      		push r10
+  31 0012 BF92      		push r11
+  32 0014 CF92      		push r12
+  33 0016 DF92      		push r13
+  34 0018 EF92      		push r14
+  35 001a FF92      		push r15
+  36 001c 0F93      		push r16
+  37 001e 1F93      		push r17
+  38 0020 DF93      		push r29
+  39 0022 CF93      		push r28
+  40 0024 00D0      		rcall .
+  41 0026 00D0      		rcall .
+  42 0028 CDB7      		in r28,__SP_L__
+  43 002a DEB7      		in r29,__SP_H__
+  44               	/* prologue: function */
+  45               	/* frame size = 4 */
+  46 002c FC01      		movw r30,r24
+  47               	.LVL1:
+  48 002e 9B01      		movw r18,r22
+  49 0030 F42E      		mov r15,r20
+  50 0032 E52E      		mov r14,r21
+  51               	.LVL2:
+  52               	.LM2:
+  53 0034 8B01      		movw r16,r22
+  54 0036 55E0      		ldi r21,5
+  55 0038 1695      	1:	lsr r17
+  56 003a 0795      		ror r16
+  57 003c 5A95      		dec r21
+  58 003e 01F4      		brne 1b
+  59               	.LVL3:
+  60 0040 902E      		mov r9,r16
+  61               	.LVL4:
+  62               	.LM3:
+  63 0042 A02E      		mov r10,r16
+  64 0044 BB24      		clr r11
+  65 0046 87E0      		ldi r24,lo8(7)
+  66 0048 90E0      		ldi r25,hi8(7)
+  67 004a A80E      		add r10,r24
+  68 004c B91E      		adc r11,r25
+  69 004e 8A2C      		mov r8,r10
+  70               	.LVL5:
+  71 0050 880C      		lsl r8
+  72 0052 880C      		lsl r8
+  73 0054 89EF      		ldi r24,lo8(-7)
+  74 0056 9FEF      		ldi r25,hi8(-7)
+  75 0058 A80E      		add r10,r24
+  76 005a B91E      		adc r11,r25
+  77               	.LM4:
+  78 005c 43E0      		ldi r20,3
+  79 005e 3695      	1:	lsr r19
+  80 0060 2795      		ror r18
+  81 0062 4A95      		dec r20
+  82 0064 01F4      		brne 1b
+  83               	.LVL6:
+  84 0066 8F2D      		mov r24,r15
+  85 0068 9E2D      		mov r25,r14
+  86 006a BF01      		movw r22,r30
+  87               	.LVL7:
+  88 006c A901      		movw r20,r18
+  89 006e 00D0      		rcall memcpy
+  90               	.LM5:
+  91 0070 CF2C      		mov r12,r15
+  92 0072 DE2C      		mov r13,r14
+  93 0074 E02E      		mov r14,r16
+  94               	.LVL8:
+  95 0076 EE0C      		lsl r14
+  96 0078 F02E      		mov r15,r16
+  97               	.LVL9:
+  98 007a 10E0      		ldi r17,lo8(0)
+  99               	.LVL10:
+ 100               	.LBB13:
+ 101               	.LBB14:
+ 102               	.LM6:
+ 103 007c 2E01      		movw r4,r28
+ 104 007e 0894      		sec
+ 105 0080 411C      		adc r4,__zero_reg__
+ 106 0082 511C      		adc r5,__zero_reg__
+ 107               	.LM7:
+ 108 0084 3201      		movw r6,r4
+ 109 0086 0894      		sec
+ 110 0088 611C      		adc r6,__zero_reg__
+ 111 008a 711C      		adc r7,__zero_reg__
+ 112               	.LM8:
+ 113 008c 34E0      		ldi r19,lo8(4)
+ 114 008e 232E      		mov r2,r19
+ 115 0090 312C      		mov r3,__zero_reg__
+ 116 0092 2C0E      		add r2,r28
+ 117 0094 3D1E      		adc r3,r29
+ 118 0096 00C0      		rjmp .L3
+ 119               	.LVL11:
+ 120               	.L6:
+ 121               	.LBE14:
+ 122               	.LBE13:
+ 123               	.LM9:
+ 124 0098 6F2D      		mov r22,r15
+ 125 009a 70E0      		ldi r23,lo8(0)
+ 126               	.LM10:
+ 127 009c FB01      		movw r30,r22
+ 128 009e E150      		subi r30,lo8(1)
+ 129 00a0 F040      		sbci r31,hi8(1)
+ 130 00a2 EE0F      		lsl r30
+ 131 00a4 FF1F      		rol r31
+ 132 00a6 EE0F      		lsl r30
+ 133 00a8 FF1F      		rol r31
+ 134 00aa EC0D      		add r30,r12
+ 135 00ac FD1D      		adc r31,r13
+ 136 00ae 8081      		ld r24,Z
+ 137 00b0 9181      		ldd r25,Z+1
+ 138 00b2 A281      		ldd r26,Z+2
+ 139 00b4 B381      		ldd r27,Z+3
+ 140 00b6 8983      		std Y+1,r24
+ 141 00b8 9A83      		std Y+2,r25
+ 142 00ba AB83      		std Y+3,r26
+ 143 00bc BC83      		std Y+4,r27
+ 144               	.LM11:
+ 145 00be F016      		cp r15,r16
+ 146 00c0 01F0      		breq .L4
+ 147               	.LVL12:
+ 148               	.LM12:
+ 149 00c2 98E0      		ldi r25,lo8(8)
+ 150 00c4 9916      		cp r9,r25
+ 151 00c6 01F0      		breq .+2
+ 152 00c8 00C0      		rjmp .L5
+ 153 00ca CB01      		movw r24,r22
+ 154 00cc 8770      		andi r24,lo8(7)
+ 155 00ce 9070      		andi r25,hi8(7)
+ 156 00d0 0497      		sbiw r24,4
+ 157 00d2 01F0      		breq .+2
+ 158 00d4 00C0      		rjmp .L5
+ 159               	.LBB16:
+ 160               	.LM13:
+ 161 00d6 E981      		ldd r30,Y+1
+ 162 00d8 F0E0      		ldi r31,lo8(0)
+ 163               	.LVL13:
+ 164 00da E050      		subi r30,lo8(-(aes_sbox))
+ 165 00dc F040      		sbci r31,hi8(-(aes_sbox))
+ 166               	/* #APP */
+ 167               	 ;  64 "../aes/aes_keyschedule.c" 1
+ 168 00de E491      		lpm r30, Z
+ 169               		
+ 170               	 ;  0 "" 2
+ 171               	.LVL14:
+ 172               	/* #NOAPP */
+ 173               	.LBE16:
+ 174 00e0 E983      		std Y+1,r30
+ 175               	.LBB17:
+ 176               	.LM14:
+ 177 00e2 EA81      		ldd r30,Y+2
+ 178               	.LVL15:
+ 179 00e4 F0E0      		ldi r31,lo8(0)
+ 180 00e6 E050      		subi r30,lo8(-(aes_sbox))
+ 181 00e8 F040      		sbci r31,hi8(-(aes_sbox))
+ 182               	/* #APP */
+ 183               	 ;  65 "../aes/aes_keyschedule.c" 1
+ 184 00ea E491      		lpm r30, Z
+ 185               		
+ 186               	 ;  0 "" 2
+ 187               	.LVL16:
+ 188               	/* #NOAPP */
+ 189               	.LBE17:
+ 190 00ec EA83      		std Y+2,r30
+ 191               	.LBB18:
+ 192               	.LM15:
+ 193 00ee EB81      		ldd r30,Y+3
+ 194               	.LVL17:
+ 195 00f0 F0E0      		ldi r31,lo8(0)
+ 196 00f2 E050      		subi r30,lo8(-(aes_sbox))
+ 197 00f4 F040      		sbci r31,hi8(-(aes_sbox))
+ 198               	/* #APP */
+ 199               	 ;  66 "../aes/aes_keyschedule.c" 1
+ 200 00f6 E491      		lpm r30, Z
+ 201               		
+ 202               	 ;  0 "" 2
+ 203               	.LVL18:
+ 204               	/* #NOAPP */
+ 205               	.LBE18:
+ 206 00f8 EB83      		std Y+3,r30
+ 207               	.LBB19:
+ 208               	.LM16:
+ 209 00fa EC81      		ldd r30,Y+4
+ 210               	.LVL19:
+ 211 00fc F0E0      		ldi r31,lo8(0)
+ 212 00fe E050      		subi r30,lo8(-(aes_sbox))
+ 213 0100 F040      		sbci r31,hi8(-(aes_sbox))
+ 214               	/* #APP */
+ 215               	 ;  67 "../aes/aes_keyschedule.c" 1
+ 216 0102 E491      		lpm r30, Z
+ 217               		
+ 218               	 ;  0 "" 2
+ 219               	.LVL20:
+ 220               	/* #NOAPP */
+ 221               	.LBE19:
+ 222 0104 EC83      		std Y+4,r30
+ 223 0106 00C0      		rjmp .L5
+ 224               	.LVL21:
+ 225               	.L4:
+ 226               	.LBB20:
+ 227               	.LBB15:
+ 228               	.LM17:
+ 229 0108 F101      		movw r30,r2
+ 230 010a 2081      		ld r18,Z
+ 231               	.LM18:
+ 232 010c F201      		movw r30,r4
+ 233 010e 3081      		ld r19,Z
+ 234               	.LBE15:
+ 235               	.LBE20:
+ 236               	.LBB21:
+ 237               	.LM19:
+ 238 0110 F301      		movw r30,r6
+ 239 0112 8081      		ld r24,Z
+ 240 0114 E82F      		mov r30,r24
+ 241 0116 F0E0      		ldi r31,lo8(0)
+ 242               	.LVL22:
+ 243 0118 E050      		subi r30,lo8(-(aes_sbox))
+ 244 011a F040      		sbci r31,hi8(-(aes_sbox))
+ 245               	/* #APP */
+ 246               	 ;  72 "../aes/aes_keyschedule.c" 1
+ 247 011c 9491      		lpm r25, Z
+ 248               		
+ 249               	 ;  0 "" 2
+ 250               	.LVL23:
+ 251               	/* #NOAPP */
+ 252               	.LBE21:
+ 253               	.LBB22:
+ 254               	.LM20:
+ 255 011e EB81      		ldd r30,Y+3
+ 256 0120 F0E0      		ldi r31,lo8(0)
+ 257 0122 E050      		subi r30,lo8(-(aes_sbox))
+ 258 0124 F040      		sbci r31,hi8(-(aes_sbox))
+ 259               	/* #APP */
+ 260               	 ;  73 "../aes/aes_keyschedule.c" 1
+ 261 0126 E491      		lpm r30, Z
+ 262               		
+ 263               	 ;  0 "" 2
+ 264               	.LVL24:
+ 265               	/* #NOAPP */
+ 266               	.LBE22:
+ 267 0128 EA83      		std Y+2,r30
+ 268               	.LBB23:
+ 269               	.LM21:
+ 270 012a E22F      		mov r30,r18
+ 271               	.LVL25:
+ 272 012c F0E0      		ldi r31,lo8(0)
+ 273 012e E050      		subi r30,lo8(-(aes_sbox))
+ 274 0130 F040      		sbci r31,hi8(-(aes_sbox))
+ 275               	/* #APP */
+ 276               	 ;  74 "../aes/aes_keyschedule.c" 1
+ 277 0132 8491      		lpm r24, Z
+ 278               		
+ 279               	 ;  0 "" 2
+ 280               	.LVL26:
+ 281               	/* #NOAPP */
+ 282               	.LBE23:
+ 283 0134 8B83      		std Y+3,r24
+ 284               	.LBB24:
+ 285               	.LM22:
+ 286 0136 E32F      		mov r30,r19
+ 287 0138 F0E0      		ldi r31,lo8(0)
+ 288 013a E050      		subi r30,lo8(-(aes_sbox))
+ 289 013c F040      		sbci r31,hi8(-(aes_sbox))
+ 290               	/* #APP */
+ 291               	 ;  75 "../aes/aes_keyschedule.c" 1
+ 292 013e 8491      		lpm r24, Z
+ 293               		
+ 294               	 ;  0 "" 2
+ 295               	.LVL27:
+ 296               	/* #NOAPP */
+ 297               	.LBE24:
+ 298 0140 8C83      		std Y+4,r24
+ 299               	.LBB25:
+ 300               	.LM23:
+ 301 0142 E12F      		mov r30,r17
+ 302 0144 F0E0      		ldi r31,lo8(0)
+ 303               	.LVL28:
+ 304 0146 E050      		subi r30,lo8(-(rc_tab))
+ 305 0148 F040      		sbci r31,hi8(-(rc_tab))
+ 306               	.LVL29:
+ 307               	/* #APP */
+ 308               	 ;  76 "../aes/aes_keyschedule.c" 1
+ 309 014a E491      		lpm r30, Z
+ 310               		
+ 311               	 ;  0 "" 2
+ 312               	.LVL30:
+ 313               	/* #NOAPP */
+ 314               	.LBE25:
+ 315 014c 9E27      		eor r25,r30
+ 316 014e 9983      		std Y+1,r25
+ 317               	.LM24:
+ 318 0150 1F5F      		subi r17,lo8(-(1))
+ 319               	.LVL31:
+ 320 0152 0E2D      		mov r16,r14
+ 321               	.LVL32:
+ 322               	.L5:
+ 323               	.LM25:
+ 324 0154 660F      		lsl r22
+ 325 0156 771F      		rol r23
+ 326 0158 660F      		lsl r22
+ 327 015a 771F      		rol r23
+ 328               	.LVL33:
+ 329 015c 6C0D      		add r22,r12
+ 330 015e 7D1D      		adc r23,r13
+ 331 0160 EF2D      		mov r30,r15
+ 332               	.LVL34:
+ 333 0162 F0E0      		ldi r31,lo8(0)
+ 334               	.LVL35:
+ 335 0164 EA19      		sub r30,r10
+ 336 0166 FB09      		sbc r31,r11
+ 337               	.LVL36:
+ 338 0168 EE0F      		lsl r30
+ 339 016a FF1F      		rol r31
+ 340 016c EE0F      		lsl r30
+ 341 016e FF1F      		rol r31
+ 342               	.LVL37:
+ 343 0170 EC0D      		add r30,r12
+ 344 0172 FD1D      		adc r31,r13
+ 345               	.LVL38:
+ 346 0174 8081      		ld r24,Z
+ 347 0176 9181      		ldd r25,Z+1
+ 348 0178 A281      		ldd r26,Z+2
+ 349 017a B381      		ldd r27,Z+3
+ 350 017c 2981      		ldd r18,Y+1
+ 351 017e 3A81      		ldd r19,Y+2
+ 352 0180 4B81      		ldd r20,Y+3
+ 353 0182 5C81      		ldd r21,Y+4
+ 354 0184 8227      		eor r24,r18
+ 355 0186 9327      		eor r25,r19
+ 356 0188 A427      		eor r26,r20
+ 357 018a B527      		eor r27,r21
+ 358 018c FB01      		movw r30,r22
+ 359               	.LVL39:
+ 360 018e 8083      		st Z,r24
+ 361 0190 9183      		std Z+1,r25
+ 362 0192 A283      		std Z+2,r26
+ 363 0194 B383      		std Z+3,r27
+ 364               	.LM26:
+ 365 0196 F394      		inc r15
+ 366               	.LVL40:
+ 367 0198 E394      		inc r14
+ 368               	.LVL41:
+ 369               	.L3:
+ 370 019a F814      		cp r15,r8
+ 371 019c 00F4      		brsh .+2
+ 372 019e 00C0      		rjmp .L6
+ 373               	/* epilogue start */
+ 374               	.LM27:
+ 375 01a0 0F90      		pop __tmp_reg__
+ 376 01a2 0F90      		pop __tmp_reg__
+ 377 01a4 0F90      		pop __tmp_reg__
+ 378 01a6 0F90      		pop __tmp_reg__
+ 379 01a8 CF91      		pop r28
+ 380 01aa DF91      		pop r29
+ 381 01ac 1F91      		pop r17
+ 382               	.LVL42:
+ 383 01ae 0F91      		pop r16
+ 384 01b0 FF90      		pop r15
+ 385               	.LVL43:
+ 386 01b2 EF90      		pop r14
+ 387               	.LVL44:
+ 388 01b4 DF90      		pop r13
+ 389 01b6 CF90      		pop r12
+ 390 01b8 BF90      		pop r11
+ 391 01ba AF90      		pop r10
+ 392 01bc 9F90      		pop r9
+ 393               	.LVL45:
+ 394 01be 8F90      		pop r8
+ 395               	.LVL46:
+ 396 01c0 7F90      		pop r7
+ 397 01c2 6F90      		pop r6
+ 398 01c4 5F90      		pop r5
+ 399 01c6 4F90      		pop r4
+ 400 01c8 3F90      		pop r3
+ 401 01ca 2F90      		pop r2
+ 402 01cc 0895      		ret
+ 403               	.LFE3:
+ 405               	.global	aes256_init
+ 407               	aes256_init:
+ 408               	.LFB6:
+ 409               	.LM28:
+ 410               	.LVL47:
+ 411               	/* prologue: function */
+ 412               	/* frame size = 0 */
+ 413 01ce AB01      		movw r20,r22
+ 414               	.LM29:
+ 415 01d0 60E0      		ldi r22,lo8(256)
+ 416 01d2 71E0      		ldi r23,hi8(256)
+ 417               	.LVL48:
+ 418 01d4 00D0      		rcall aes_init
+ 419               	.LVL49:
+ 420               	/* epilogue start */
+ 421               	.LM30:
+ 422 01d6 0895      		ret
+ 423               	.LFE6:
+ 425               	.global	aes192_init
+ 427               	aes192_init:
+ 428               	.LFB5:
+ 429               	.LM31:
+ 430               	.LVL50:
+ 431               	/* prologue: function */
+ 432               	/* frame size = 0 */
+ 433 01d8 AB01      		movw r20,r22
+ 434               	.LM32:
+ 435 01da 60EC      		ldi r22,lo8(192)
+ 436 01dc 70E0      		ldi r23,hi8(192)
+ 437               	.LVL51:
+ 438 01de 00D0      		rcall aes_init
+ 439               	.LVL52:
+ 440               	/* epilogue start */
+ 441               	.LM33:
+ 442 01e0 0895      		ret
+ 443               	.LFE5:
+ 445               	.global	aes128_init
+ 447               	aes128_init:
+ 448               	.LFB4:
+ 449               	.LM34:
+ 450               	.LVL53:
+ 451               	/* prologue: function */
+ 452               	/* frame size = 0 */
+ 453 01e2 AB01      		movw r20,r22
+ 454               	.LM35:
+ 455 01e4 60E8      		ldi r22,lo8(128)
+ 456 01e6 70E0      		ldi r23,hi8(128)
+ 457               	.LVL54:
+ 458 01e8 00D0      		rcall aes_init
+ 459               	.LVL55:
+ 460               	/* epilogue start */
+ 461               	.LM36:
+ 462 01ea 0895      		ret
+ 463               	.LFE4:
+ 465               	.global	rc_tab
+ 466               		.section	.progmem.data,"a",@progbits
+ 469               	rc_tab:
+ 470 0000 01        		.byte	1
+ 471 0001 02        		.byte	2
+ 472 0002 04        		.byte	4
+ 473 0003 08        		.byte	8
+ 474 0004 10        		.byte	16
+ 475 0005 20        		.byte	32
+ 476 0006 40        		.byte	64
+ 477 0007 80        		.byte	-128
+ 478 0008 1B        		.byte	27
+ 479 0009 36        		.byte	54
+ 528               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 aes_keyschedule.c
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccbA3lwY.s:2      *ABS*:0000003f __SREG__
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccbA3lwY.s:3      *ABS*:0000003e __SP_H__
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccbA3lwY.s:4      *ABS*:0000003d __SP_L__
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccbA3lwY.s:5      *ABS*:00000034 __CCP__
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccbA3lwY.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccbA3lwY.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccbA3lwY.s:18     .text:00000000 aes_init
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccbA3lwY.s:469    .progmem.data:00000000 rc_tab
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccbA3lwY.s:407    .text:000001ce aes256_init
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccbA3lwY.s:427    .text:000001d8 aes192_init
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccbA3lwY.s:447    .text:000001e2 aes128_init
+
+UNDEFINED SYMBOLS
+memcpy
+aes_sbox

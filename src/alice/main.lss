@@ -1,0 +1,1776 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000ae6  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000020  00800060  00000ae6  00000b7a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          000000b0  00800080  00800080  00000b9a  2**0
+                  ALLOC
+  3 .stab         000007ec  00000000  00000000  00000b9c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      0000012d  00000000  00000000  00001388  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_aranges 00000140  00000000  00000000  000014b5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_pubnames 00000225  00000000  00000000  000015f5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   00001621  00000000  00000000  0000181a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 00000b4a  00000000  00000000  00002e3b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   00000f42  00000000  00000000  00003985  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  000001b0  00000000  00000000  000048c8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    00000390  00000000  00000000  00004a78  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    000006e7  00000000  00000000  00004e08  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_ranges 00000128  00000000  00000000  000054ef  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	19 c1       	rjmp	.+562    	; 0x234 <__ctors_end>
+   2:	33 c1       	rjmp	.+614    	; 0x26a <__bad_interrupt>
+   4:	32 c1       	rjmp	.+612    	; 0x26a <__bad_interrupt>
+   6:	31 c1       	rjmp	.+610    	; 0x26a <__bad_interrupt>
+   8:	30 c1       	rjmp	.+608    	; 0x26a <__bad_interrupt>
+   a:	2f c1       	rjmp	.+606    	; 0x26a <__bad_interrupt>
+   c:	2e c1       	rjmp	.+604    	; 0x26a <__bad_interrupt>
+   e:	2d c1       	rjmp	.+602    	; 0x26a <__bad_interrupt>
+  10:	2c c1       	rjmp	.+600    	; 0x26a <__bad_interrupt>
+  12:	2b c1       	rjmp	.+598    	; 0x26a <__bad_interrupt>
+  14:	2a c1       	rjmp	.+596    	; 0x26a <__bad_interrupt>
+  16:	29 c1       	rjmp	.+594    	; 0x26a <__bad_interrupt>
+  18:	28 c1       	rjmp	.+592    	; 0x26a <__bad_interrupt>
+  1a:	27 c1       	rjmp	.+590    	; 0x26a <__bad_interrupt>
+  1c:	26 c1       	rjmp	.+588    	; 0x26a <__bad_interrupt>
+  1e:	25 c1       	rjmp	.+586    	; 0x26a <__bad_interrupt>
+  20:	24 c1       	rjmp	.+584    	; 0x26a <__bad_interrupt>
+  22:	23 c1       	rjmp	.+582    	; 0x26a <__bad_interrupt>
+  24:	22 c1       	rjmp	.+580    	; 0x26a <__bad_interrupt>
+  26:	21 c1       	rjmp	.+578    	; 0x26a <__bad_interrupt>
+  28:	20 c1       	rjmp	.+576    	; 0x26a <__bad_interrupt>
+
+0000002a <aes_invsbox>:
+  2a:	52 09 6a d5 30 36 a5 38 bf 40 a3 9e 81 f3 d7 fb     R.j.06.8.@......
+  3a:	7c e3 39 82 9b 2f ff 87 34 8e 43 44 c4 de e9 cb     |.9../..4.CD....
+  4a:	54 7b 94 32 a6 c2 23 3d ee 4c 95 0b 42 fa c3 4e     T{.2..#=.L..B..N
+  5a:	08 2e a1 66 28 d9 24 b2 76 5b a2 49 6d 8b d1 25     ...f(.$.v[.Im..%
+  6a:	72 f8 f6 64 86 68 98 16 d4 a4 5c cc 5d 65 b6 92     r..d.h....\.]e..
+  7a:	6c 70 48 50 fd ed b9 da 5e 15 46 57 a7 8d 9d 84     lpHP....^.FW....
+  8a:	90 d8 ab 00 8c bc d3 0a f7 e4 58 05 b8 b3 45 06     ..........X...E.
+  9a:	d0 2c 1e 8f ca 3f 0f 02 c1 af bd 03 01 13 8a 6b     .,...?.........k
+  aa:	3a 91 11 41 4f 67 dc ea 97 f2 cf ce f0 b4 e6 73     :..AOg.........s
+  ba:	96 ac 74 22 e7 ad 35 85 e2 f9 37 e8 1c 75 df 6e     ..t"..5...7..u.n
+  ca:	47 f1 1a 71 1d 29 c5 89 6f b7 62 0e aa 18 be 1b     G..q.)..o.b.....
+  da:	fc 56 3e 4b c6 d2 79 20 9a db c0 fe 78 cd 5a f4     .V>K..y ....x.Z.
+  ea:	1f dd a8 33 88 07 c7 31 b1 12 10 59 27 80 ec 5f     ...3...1...Y'.._
+  fa:	60 51 7f a9 19 b5 4a 0d 2d e5 7a 9f 93 c9 9c ef     `Q....J.-.z.....
+ 10a:	a0 e0 3b 4d ae 2a f5 b0 c8 eb bb 3c 83 53 99 61     ..;M.*.....<.S.a
+ 11a:	17 2b 04 7e ba 77 d6 26 e1 69 14 63 55 21 0c 7d     .+.~.w.&.i.cU!.}
+
+0000012a <rc_tab>:
+ 12a:	01 02 04 08 10 20 40 80 1b 36                       ..... @..6
+
+00000134 <aes_sbox>:
+ 134:	63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76     c|w{.ko.0.g+...v
+ 144:	ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0     ...}.YG.......r.
+ 154:	b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15     ...&6?..4...q.1.
+ 164:	04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75     ..#..........'.u
+ 174:	09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84     ..,..nZ.R;..)./.
+ 184:	53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf     S... ..[j..9JLX.
+ 194:	d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8     ....CM3.E...P<..
+ 1a4:	51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2     Q.@...8....!....
+ 1b4:	cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73     ...._.D...~=d].s
+ 1c4:	60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db     `.O."*..F....^..
+ 1d4:	e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79     .2:.I.$\...b...y
+ 1e4:	e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08     ..7m..N.lV..ez..
+ 1f4:	ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a     .x%.......t.K...
+ 204:	70 3e b5 66 48 03 f6 0e 61 35 57 b9 86 c1 1d 9e     p>.fH...a5W.....
+ 214:	e1 f8 98 11 69 d9 8e 94 9b 1e 87 e9 ce 55 28 df     ....i........U(.
+ 224:	8c a1 89 0d bf e6 42 68 41 99 2d 0f b0 54 bb 16     ......BhA.-..T..
+
+00000234 <__ctors_end>:
+ 234:	11 24       	eor	r1, r1
+ 236:	1f be       	out	0x3f, r1	; 63
+ 238:	cf e5       	ldi	r28, 0x5F	; 95
+ 23a:	d2 e0       	ldi	r29, 0x02	; 2
+ 23c:	de bf       	out	0x3e, r29	; 62
+ 23e:	cd bf       	out	0x3d, r28	; 61
+
+00000240 <__do_copy_data>:
+ 240:	10 e0       	ldi	r17, 0x00	; 0
+ 242:	a0 e6       	ldi	r26, 0x60	; 96
+ 244:	b0 e0       	ldi	r27, 0x00	; 0
+ 246:	e6 ee       	ldi	r30, 0xE6	; 230
+ 248:	fa e0       	ldi	r31, 0x0A	; 10
+ 24a:	02 c0       	rjmp	.+4      	; 0x250 <.do_copy_data_start>
+
+0000024c <.do_copy_data_loop>:
+ 24c:	05 90       	lpm	r0, Z+
+ 24e:	0d 92       	st	X+, r0
+
+00000250 <.do_copy_data_start>:
+ 250:	a0 38       	cpi	r26, 0x80	; 128
+ 252:	b1 07       	cpc	r27, r17
+ 254:	d9 f7       	brne	.-10     	; 0x24c <.do_copy_data_loop>
+
+00000256 <__do_clear_bss>:
+ 256:	11 e0       	ldi	r17, 0x01	; 1
+ 258:	a0 e8       	ldi	r26, 0x80	; 128
+ 25a:	b0 e0       	ldi	r27, 0x00	; 0
+ 25c:	01 c0       	rjmp	.+2      	; 0x260 <.do_clear_bss_start>
+
+0000025e <.do_clear_bss_loop>:
+ 25e:	1d 92       	st	X+, r1
+
+00000260 <.do_clear_bss_start>:
+ 260:	a0 33       	cpi	r26, 0x30	; 48
+ 262:	b1 07       	cpc	r27, r17
+ 264:	e1 f7       	brne	.-8      	; 0x25e <.do_clear_bss_loop>
+ 266:	12 d0       	rcall	.+36     	; 0x28c <main>
+ 268:	3c c4       	rjmp	.+2168   	; 0xae2 <_exit>
+
+0000026a <__bad_interrupt>:
+ 26a:	ca ce       	rjmp	.-620    	; 0x0 <__vectors>
+
+0000026c <init>:
+
+aes128_ctx_t ctx;
+
+void init(void)
+{
+	set_false(DDRD, PD0); // button
+ 26c:	88 98       	cbi	0x11, 0	; 17
+	set_true(PORTD, PD0); // PDO gets extra resistance of 100 kOhm
+ 26e:	90 9a       	sbi	0x12, 0	; 18
+	set_true(DDRC, PC0); // LED
+ 270:	a0 9a       	sbi	0x14, 0	; 20
+	set_true(PORTC, PC0); // low voltage
+ 272:	a8 9a       	sbi	0x15, 0	; 21
+#define MISO PB6
+#define SCK PB7
+
+inline void spi_init_master(void)
+{
+	set_true(DDRB, MOSI);
+ 274:	bd 9a       	sbi	0x17, 5	; 23
+	set_true(DDRB, SCK);
+ 276:	bf 9a       	sbi	0x17, 7	; 23
+	set_true(DDRB, SS);
+ 278:	bc 9a       	sbi	0x17, 4	; 23
+	
+	set_true(SPCR, MSTR);
+ 27a:	6c 9a       	sbi	0x0d, 4	; 13
+	set_true(SPCR, SPR0); // set SCK = OF / 16
+ 27c:	68 9a       	sbi	0x0d, 0	; 13
+	set_true(SPCR, SPE);  // spi enable
+ 27e:	6e 9a       	sbi	0x0d, 6	; 13
+	spi_init_master();
+
+	aes128_init(key, &ctx);
+ 280:	80 e6       	ldi	r24, 0x60	; 96
+ 282:	90 e0       	ldi	r25, 0x00	; 0
+ 284:	60 e8       	ldi	r22, 0x80	; 128
+ 286:	70 e0       	ldi	r23, 0x00	; 0
+ 288:	11 d4       	rcall	.+2082   	; 0xaac <aes128_init>
+}
+ 28a:	08 95       	ret
+
+0000028c <main>:
+int main(void)
+{
+	int need_to_send = 1;
+	uint8_t check = 0;
+ 
+	init();
+ 28c:	ef df       	rcall	.-34     	; 0x26c <init>
+
+	aes128_enc(data, &ctx);
+ 28e:	80 e7       	ldi	r24, 0x70	; 112
+ 290:	90 e0       	ldi	r25, 0x00	; 0
+ 292:	60 e8       	ldi	r22, 0x80	; 128
+ 294:	70 e0       	ldi	r23, 0x00	; 0
+ 296:	21 d0       	rcall	.+66     	; 0x2da <aes128_enc>
+ 298:	21 e0       	ldi	r18, 0x01	; 1
+ 29a:	30 e0       	ldi	r19, 0x00	; 0
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+ 29c:	44 ed       	ldi	r20, 0xD4	; 212
+ 29e:	50 e3       	ldi	r21, 0x30	; 48
+ 
+	while (1)
+	{
+		check = read_bit(PIND, PD0);
+		
+		if (check == 0 && need_to_send)
+ 2a0:	80 99       	sbic	0x10, 0	; 16
+ 2a2:	13 c0       	rjmp	.+38     	; 0x2ca <main+0x3e>
+ 2a4:	21 15       	cp	r18, r1
+ 2a6:	31 05       	cpc	r19, r1
+ 2a8:	81 f0       	breq	.+32     	; 0x2ca <main+0x3e>
+		{
+			set_false(PORTC, PC0);
+ 2aa:	a8 98       	cbi	0x15, 0	; 21
+ 2ac:	e0 e7       	ldi	r30, 0x70	; 112
+ 2ae:	f0 e0       	ldi	r31, 0x00	; 0
+			need_to_send = 0;
+
+			for (int i = 0; i < BLOCK_SIZE; i ++) spi_sync(data[i]);
+ 2b0:	80 81       	ld	r24, Z
+	set_true(SPCR, SPE); // spi enable
+}
+
+inline uint8_t spi_sync(uint8_t data)
+{
+	SPDR = data;
+ 2b2:	8f b9       	out	0x0f, r24	; 15
+	while (!read_bit(SPSR, SPIF)); // wait for reception complete
+ 2b4:	77 9b       	sbis	0x0e, 7	; 14
+ 2b6:	fe cf       	rjmp	.-4      	; 0x2b4 <main+0x28>
+	return SPDR;
+ 2b8:	8f b1       	in	r24, 0x0f	; 15
+ 2ba:	31 96       	adiw	r30, 0x01	; 1
+ 2bc:	80 e0       	ldi	r24, 0x00	; 0
+ 2be:	e0 38       	cpi	r30, 0x80	; 128
+ 2c0:	f8 07       	cpc	r31, r24
+ 2c2:	b1 f7       	brne	.-20     	; 0x2b0 <main+0x24>
+ 2c4:	20 e0       	ldi	r18, 0x00	; 0
+ 2c6:	30 e0       	ldi	r19, 0x00	; 0
+ 2c8:	01 c0       	rjmp	.+2      	; 0x2cc <main+0x40>
+		}
+		else set_true(PORTC, PC0);
+ 2ca:	a8 9a       	sbi	0x15, 0	; 21
+ 2cc:	ca 01       	movw	r24, r20
+ 2ce:	01 97       	sbiw	r24, 0x01	; 1
+ 2d0:	f1 f7       	brne	.-4      	; 0x2ce <main+0x42>
+ 2d2:	e6 cf       	rjmp	.-52     	; 0x2a0 <main+0x14>
+
+000002d4 <aes128_dec>:
+
+#include "aes.h"
+#include "aes_dec.h"
+
+void aes128_dec(void* buffer, aes128_ctx_t* ctx){
+	aes_decrypt_core(buffer, (aes_genctx_t*)ctx, 10);
+ 2d4:	4a e0       	ldi	r20, 0x0A	; 10
+ 2d6:	5c d0       	rcall	.+184    	; 0x390 <aes_decrypt_core>
+}
+ 2d8:	08 95       	ret
+
+000002da <aes128_enc>:
+
+#include "aes.h"
+#include "aes_enc.h"
+
+void aes128_enc(void* buffer, aes128_ctx_t* ctx){
+	aes_encrypt_core(buffer, (aes_genctx_t*)ctx, 10);
+ 2da:	4a e0       	ldi	r20, 0x0A	; 10
+ 2dc:	f5 d1       	rcall	.+1002   	; 0x6c8 <aes_encrypt_core>
+}
+ 2de:	08 95       	ret
+
+000002e0 <aes192_dec>:
+
+#include "aes.h"
+#include "aes_dec.h"
+
+void aes192_dec(void* buffer, aes192_ctx_t* ctx){
+	aes_decrypt_core(buffer, (aes_genctx_t*)ctx, 12);
+ 2e0:	4c e0       	ldi	r20, 0x0C	; 12
+ 2e2:	56 d0       	rcall	.+172    	; 0x390 <aes_decrypt_core>
+}
+ 2e4:	08 95       	ret
+
+000002e6 <aes192_enc>:
+
+#include "aes.h"
+#include "aes_enc.h"
+
+void aes192_enc(void* buffer, aes192_ctx_t* ctx){
+	aes_encrypt_core(buffer, (aes_genctx_t*)ctx, 12);
+ 2e6:	4c e0       	ldi	r20, 0x0C	; 12
+ 2e8:	ef d1       	rcall	.+990    	; 0x6c8 <aes_encrypt_core>
+}
+ 2ea:	08 95       	ret
+
+000002ec <aes256_dec>:
+
+#include "aes.h"
+#include "aes_dec.h"
+
+void aes256_dec(void* buffer, aes256_ctx_t* ctx){
+	aes_decrypt_core(buffer, (aes_genctx_t*)ctx, 14);
+ 2ec:	4e e0       	ldi	r20, 0x0E	; 14
+ 2ee:	50 d0       	rcall	.+160    	; 0x390 <aes_decrypt_core>
+}
+ 2f0:	08 95       	ret
+
+000002f2 <aes256_enc>:
+
+#include "aes.h"
+#include "aes_enc.h"
+
+void aes256_enc(void* buffer, aes256_ctx_t* ctx){
+	aes_encrypt_core(buffer, (aes_genctx_t*)ctx, 14);
+ 2f2:	4e e0       	ldi	r20, 0x0E	; 14
+ 2f4:	e9 d1       	rcall	.+978    	; 0x6c8 <aes_encrypt_core>
+}
+ 2f6:	08 95       	ret
+
+000002f8 <aes_invshiftcol>:
+	tmp[2] = ((uint8_t*)data)[(4+2-shift)&3];
+	tmp[3] = ((uint8_t*)data)[(4+3-shift)&3];
+	memcpy(data, tmp, 4);
+}
+
+void aes_invshiftcol(void* data, uint8_t shift){
+ 2f8:	df 93       	push	r29
+ 2fa:	cf 93       	push	r28
+ 2fc:	00 d0       	rcall	.+0      	; 0x2fe <aes_invshiftcol+0x6>
+ 2fe:	00 d0       	rcall	.+0      	; 0x300 <aes_invshiftcol+0x8>
+ 300:	cd b7       	in	r28, 0x3d	; 61
+ 302:	de b7       	in	r29, 0x3e	; 62
+	uint8_t tmp[4];
+	tmp[0] = ((uint8_t*)data)[ 0];
+ 304:	dc 01       	movw	r26, r24
+ 306:	8c 91       	ld	r24, X
+ 308:	89 83       	std	Y+1, r24	; 0x01
+	tmp[1] = ((uint8_t*)data)[ 4];
+ 30a:	14 96       	adiw	r26, 0x04	; 4
+ 30c:	8c 91       	ld	r24, X
+ 30e:	14 97       	sbiw	r26, 0x04	; 4
+ 310:	8a 83       	std	Y+2, r24	; 0x02
+	tmp[2] = ((uint8_t*)data)[ 8];
+ 312:	18 96       	adiw	r26, 0x08	; 8
+ 314:	8c 91       	ld	r24, X
+ 316:	18 97       	sbiw	r26, 0x08	; 8
+ 318:	8b 83       	std	Y+3, r24	; 0x03
+	tmp[3] = ((uint8_t*)data)[12];
+ 31a:	1c 96       	adiw	r26, 0x0c	; 12
+ 31c:	8c 91       	ld	r24, X
+ 31e:	1c 97       	sbiw	r26, 0x0c	; 12
+ 320:	8c 83       	std	Y+4, r24	; 0x04
+	((uint8_t*)data)[ 0] = tmp[(4-shift+0)&3];
+ 322:	70 e0       	ldi	r23, 0x00	; 0
+ 324:	ee 27       	eor	r30, r30
+ 326:	ff 27       	eor	r31, r31
+ 328:	e6 1b       	sub	r30, r22
+ 32a:	f7 0b       	sbc	r31, r23
+ 32c:	e3 70       	andi	r30, 0x03	; 3
+ 32e:	f0 70       	andi	r31, 0x00	; 0
+ 330:	9e 01       	movw	r18, r28
+ 332:	2f 5f       	subi	r18, 0xFF	; 255
+ 334:	3f 4f       	sbci	r19, 0xFF	; 255
+ 336:	e2 0f       	add	r30, r18
+ 338:	f3 1f       	adc	r31, r19
+ 33a:	80 81       	ld	r24, Z
+ 33c:	8c 93       	st	X, r24
+	((uint8_t*)data)[ 4] = tmp[(4-shift+1)&3];
+ 33e:	e5 e0       	ldi	r30, 0x05	; 5
+ 340:	f0 e0       	ldi	r31, 0x00	; 0
+ 342:	e6 1b       	sub	r30, r22
+ 344:	f7 0b       	sbc	r31, r23
+ 346:	e3 70       	andi	r30, 0x03	; 3
+ 348:	f0 70       	andi	r31, 0x00	; 0
+ 34a:	e2 0f       	add	r30, r18
+ 34c:	f3 1f       	adc	r31, r19
+ 34e:	80 81       	ld	r24, Z
+ 350:	14 96       	adiw	r26, 0x04	; 4
+ 352:	8c 93       	st	X, r24
+ 354:	14 97       	sbiw	r26, 0x04	; 4
+	((uint8_t*)data)[ 8] = tmp[(4-shift+2)&3];
+ 356:	e6 e0       	ldi	r30, 0x06	; 6
+ 358:	f0 e0       	ldi	r31, 0x00	; 0
+ 35a:	e6 1b       	sub	r30, r22
+ 35c:	f7 0b       	sbc	r31, r23
+ 35e:	e3 70       	andi	r30, 0x03	; 3
+ 360:	f0 70       	andi	r31, 0x00	; 0
+ 362:	e2 0f       	add	r30, r18
+ 364:	f3 1f       	adc	r31, r19
+ 366:	80 81       	ld	r24, Z
+ 368:	18 96       	adiw	r26, 0x08	; 8
+ 36a:	8c 93       	st	X, r24
+ 36c:	18 97       	sbiw	r26, 0x08	; 8
+	((uint8_t*)data)[12] = tmp[(4-shift+3)&3];
+ 36e:	60 95       	com	r22
+ 370:	70 95       	com	r23
+ 372:	63 70       	andi	r22, 0x03	; 3
+ 374:	70 70       	andi	r23, 0x00	; 0
+ 376:	26 0f       	add	r18, r22
+ 378:	37 1f       	adc	r19, r23
+ 37a:	f9 01       	movw	r30, r18
+ 37c:	80 81       	ld	r24, Z
+ 37e:	1c 96       	adiw	r26, 0x0c	; 12
+ 380:	8c 93       	st	X, r24
+}
+ 382:	0f 90       	pop	r0
+ 384:	0f 90       	pop	r0
+ 386:	0f 90       	pop	r0
+ 388:	0f 90       	pop	r0
+ 38a:	cf 91       	pop	r28
+ 38c:	df 91       	pop	r29
+ 38e:	08 95       	ret
+
+00000390 <aes_decrypt_core>:
+	for(i=0; i<16; ++i){
+		state->s[i] = pgm_read_byte(aes_invsbox+state->s[i]);
+	}
+}
+
+void aes_decrypt_core(aes_cipher_state_t* state, const aes_genctx_t* ks, uint8_t rounds){
+ 390:	2f 92       	push	r2
+ 392:	3f 92       	push	r3
+ 394:	4f 92       	push	r4
+ 396:	5f 92       	push	r5
+ 398:	6f 92       	push	r6
+ 39a:	7f 92       	push	r7
+ 39c:	8f 92       	push	r8
+ 39e:	9f 92       	push	r9
+ 3a0:	af 92       	push	r10
+ 3a2:	bf 92       	push	r11
+ 3a4:	cf 92       	push	r12
+ 3a6:	df 92       	push	r13
+ 3a8:	ef 92       	push	r14
+ 3aa:	ff 92       	push	r15
+ 3ac:	0f 93       	push	r16
+ 3ae:	1f 93       	push	r17
+ 3b0:	df 93       	push	r29
+ 3b2:	cf 93       	push	r28
+ 3b4:	cd b7       	in	r28, 0x3d	; 61
+ 3b6:	de b7       	in	r29, 0x3e	; 62
+ 3b8:	6b 97       	sbiw	r28, 0x1b	; 27
+ 3ba:	0f b6       	in	r0, 0x3f	; 63
+ 3bc:	f8 94       	cli
+ 3be:	de bf       	out	0x3e, r29	; 62
+ 3c0:	0f be       	out	0x3f, r0	; 63
+ 3c2:	cd bf       	out	0x3d, r28	; 61
+ 3c4:	2c 01       	movw	r4, r24
+ 3c6:	79 8f       	std	Y+25, r23	; 0x19
+ 3c8:	68 8f       	std	Y+24, r22	; 0x18
+ 3ca:	14 2f       	mov	r17, r20
+ 3cc:	1c 01       	movw	r2, r24
+ 3ce:	e4 2f       	mov	r30, r20
+ 3d0:	f0 e0       	ldi	r31, 0x00	; 0
+ 3d2:	94 e0       	ldi	r25, 0x04	; 4
+ 3d4:	ee 0f       	add	r30, r30
+ 3d6:	ff 1f       	adc	r31, r31
+ 3d8:	9a 95       	dec	r25
+ 3da:	e1 f7       	brne	.-8      	; 0x3d4 <aes_decrypt_core+0x44>
+ 3dc:	e6 0f       	add	r30, r22
+ 3de:	f7 1f       	adc	r31, r23
+ 3e0:	d2 01       	movw	r26, r4
+ 3e2:	20 e0       	ldi	r18, 0x00	; 0
+static
+void aes_dec_firstround(aes_cipher_state_t* state, const aes_roundkey_t* k){
+	uint8_t i;
+	/* keyAdd */
+	for(i=0; i<16; ++i){
+		state->s[i] ^= k->ks[i];
+ 3e4:	8c 91       	ld	r24, X
+ 3e6:	91 91       	ld	r25, Z+
+ 3e8:	89 27       	eor	r24, r25
+ 3ea:	8d 93       	st	X+, r24
+
+static
+void aes_dec_firstround(aes_cipher_state_t* state, const aes_roundkey_t* k){
+	uint8_t i;
+	/* keyAdd */
+	for(i=0; i<16; ++i){
+ 3ec:	2f 5f       	subi	r18, 0xFF	; 255
+ 3ee:	20 31       	cpi	r18, 0x10	; 16
+ 3f0:	c9 f7       	brne	.-14     	; 0x3e4 <aes_decrypt_core+0x54>
+		state->s[i] ^= k->ks[i];
+	}
+	/* shiftRows */
+	aes_invshiftcol(state->s+1, 1);
+ 3f2:	c2 01       	movw	r24, r4
+ 3f4:	01 96       	adiw	r24, 0x01	; 1
+ 3f6:	9b 8b       	std	Y+19, r25	; 0x13
+ 3f8:	8a 8b       	std	Y+18, r24	; 0x12
+ 3fa:	61 e0       	ldi	r22, 0x01	; 1
+ 3fc:	7d df       	rcall	.-262    	; 0x2f8 <aes_invshiftcol>
+	aes_invshiftcol(state->s+2, 2);
+ 3fe:	d2 01       	movw	r26, r4
+ 400:	12 96       	adiw	r26, 0x02	; 2
+ 402:	bd 8b       	std	Y+21, r27	; 0x15
+ 404:	ac 8b       	std	Y+20, r26	; 0x14
+ 406:	cd 01       	movw	r24, r26
+ 408:	62 e0       	ldi	r22, 0x02	; 2
+ 40a:	76 df       	rcall	.-276    	; 0x2f8 <aes_invshiftcol>
+	aes_invshiftcol(state->s+3, 3);		
+ 40c:	f2 01       	movw	r30, r4
+ 40e:	33 96       	adiw	r30, 0x03	; 3
+ 410:	ff 8b       	std	Y+23, r31	; 0x17
+ 412:	ee 8b       	std	Y+22, r30	; 0x16
+ 414:	cf 01       	movw	r24, r30
+ 416:	63 e0       	ldi	r22, 0x03	; 3
+ 418:	6f df       	rcall	.-290    	; 0x2f8 <aes_invshiftcol>
+ 41a:	d2 01       	movw	r26, r4
+ 41c:	80 e0       	ldi	r24, 0x00	; 0
+	/* subBytes */
+	for(i=0; i<16; ++i){
+		state->s[i] = pgm_read_byte(aes_invsbox+state->s[i]);
+ 41e:	ec 91       	ld	r30, X
+ 420:	f0 e0       	ldi	r31, 0x00	; 0
+ 422:	e6 5d       	subi	r30, 0xD6	; 214
+ 424:	ff 4f       	sbci	r31, 0xFF	; 255
+ 426:	e4 91       	lpm	r30, Z+
+ 428:	ed 93       	st	X+, r30
+	/* shiftRows */
+	aes_invshiftcol(state->s+1, 1);
+	aes_invshiftcol(state->s+2, 2);
+	aes_invshiftcol(state->s+3, 3);		
+	/* subBytes */
+	for(i=0; i<16; ++i){
+ 42a:	8f 5f       	subi	r24, 0xFF	; 255
+ 42c:	80 31       	cpi	r24, 0x10	; 16
+ 42e:	b9 f7       	brne	.-18     	; 0x41e <aes_decrypt_core+0x8e>
+ 430:	a1 2e       	mov	r10, r17
+	/* keyAdd */
+	for(i=0; i<16; ++i){
+		tmp[i] = state->s[i] ^ k->ks[i];
+	}
+	/* mixColums */
+	for(i=0; i<4; ++i){
+ 432:	ce 01       	movw	r24, r28
+ 434:	41 96       	adiw	r24, 0x11	; 17
+ 436:	9b 8f       	std	Y+27, r25	; 0x1b
+ 438:	8a 8f       	std	Y+26, r24	; 0x1a
+ 43a:	92 c0       	rjmp	.+292    	; 0x560 <aes_decrypt_core+0x1d0>
+
+void aes_decrypt_core(aes_cipher_state_t* state, const aes_genctx_t* ks, uint8_t rounds){
+	uint8_t i;
+	aes_dec_firstround(state, &(ks->key[i=rounds]));
+	for(;rounds>1;--rounds){
+		--i;
+ 43c:	aa 94       	dec	r10
+		aes_dec_round(state, &(ks->key[i]));
+ 43e:	6a 2d       	mov	r22, r10
+ 440:	70 e0       	ldi	r23, 0x00	; 0
+ 442:	84 e0       	ldi	r24, 0x04	; 4
+ 444:	66 0f       	add	r22, r22
+ 446:	77 1f       	adc	r23, r23
+ 448:	8a 95       	dec	r24
+ 44a:	e1 f7       	brne	.-8      	; 0x444 <aes_decrypt_core+0xb4>
+ 44c:	a8 8d       	ldd	r26, Y+24	; 0x18
+ 44e:	b9 8d       	ldd	r27, Y+25	; 0x19
+ 450:	6a 0f       	add	r22, r26
+ 452:	7b 1f       	adc	r23, r27
+ 454:	40 e0       	ldi	r20, 0x00	; 0
+ 456:	50 e0       	ldi	r21, 0x00	; 0
+	uint8_t tmp[16];
+	uint8_t i;
+	uint8_t t,u,v,w;
+	/* keyAdd */
+	for(i=0; i<16; ++i){
+		tmp[i] = state->s[i] ^ k->ks[i];
+ 458:	21 e0       	ldi	r18, 0x01	; 1
+ 45a:	30 e0       	ldi	r19, 0x00	; 0
+ 45c:	2c 0f       	add	r18, r28
+ 45e:	3d 1f       	adc	r19, r29
+ 460:	24 0f       	add	r18, r20
+ 462:	35 1f       	adc	r19, r21
+ 464:	fb 01       	movw	r30, r22
+ 466:	e4 0f       	add	r30, r20
+ 468:	f5 1f       	adc	r31, r21
+ 46a:	d2 01       	movw	r26, r4
+ 46c:	a4 0f       	add	r26, r20
+ 46e:	b5 1f       	adc	r27, r21
+ 470:	80 81       	ld	r24, Z
+ 472:	9c 91       	ld	r25, X
+ 474:	89 27       	eor	r24, r25
+ 476:	f9 01       	movw	r30, r18
+ 478:	80 83       	st	Z, r24
+ 47a:	4f 5f       	subi	r20, 0xFF	; 255
+ 47c:	5f 4f       	sbci	r21, 0xFF	; 255
+void aes_dec_round(aes_cipher_state_t* state, const aes_roundkey_t* k){
+	uint8_t tmp[16];
+	uint8_t i;
+	uint8_t t,u,v,w;
+	/* keyAdd */
+	for(i=0; i<16; ++i){
+ 47e:	40 31       	cpi	r20, 0x10	; 16
+ 480:	51 05       	cpc	r21, r1
+ 482:	51 f7       	brne	.-44     	; 0x458 <aes_decrypt_core+0xc8>
+ 484:	4e 01       	movw	r8, r28
+ 486:	08 94       	sec
+ 488:	81 1c       	adc	r8, r1
+ 48a:	91 1c       	adc	r9, r1
+ 48c:	32 01       	movw	r6, r4
+		tmp[i] = state->s[i] ^ k->ks[i];
+	}
+	/* mixColums */
+	for(i=0; i<4; ++i){
+		t = tmp[4*i+3] ^ tmp[4*i+2];
+ 48e:	d4 01       	movw	r26, r8
+ 490:	13 96       	adiw	r26, 0x03	; 3
+ 492:	1c 91       	ld	r17, X
+ 494:	13 97       	sbiw	r26, 0x03	; 3
+ 496:	12 96       	adiw	r26, 0x02	; 2
+ 498:	ec 90       	ld	r14, X
+ 49a:	12 97       	sbiw	r26, 0x02	; 2
+ 49c:	ce 2c       	mov	r12, r14
+ 49e:	c1 26       	eor	r12, r17
+		u = tmp[4*i+1] ^ tmp[4*i+0];
+ 4a0:	11 96       	adiw	r26, 0x01	; 1
+ 4a2:	0c 91       	ld	r16, X
+ 4a4:	11 97       	sbiw	r26, 0x01	; 1
+ 4a6:	fc 90       	ld	r15, X
+ 4a8:	bf 2d       	mov	r27, r15
+ 4aa:	b0 27       	eor	r27, r16
+ 4ac:	b9 8b       	std	Y+17, r27	; 0x11
+		v = t ^ u;
+ 4ae:	6b 2f       	mov	r22, r27
+ 4b0:	6c 25       	eor	r22, r12
+		v = gf256mul(0x09, v, 0x1b);
+ 4b2:	89 e0       	ldi	r24, 0x09	; 9
+ 4b4:	4b e1       	ldi	r20, 0x1B	; 27
+ 4b6:	ff d2       	rcall	.+1534   	; 0xab6 <gf256mul>
+ 4b8:	d8 2e       	mov	r13, r24
+		w = v ^ gf256mul(0x04, tmp[4*i+2] ^ tmp[4*i+0], 0x1b);
+ 4ba:	6f 2d       	mov	r22, r15
+ 4bc:	6e 25       	eor	r22, r14
+ 4be:	84 e0       	ldi	r24, 0x04	; 4
+ 4c0:	4b e1       	ldi	r20, 0x1B	; 27
+ 4c2:	f9 d2       	rcall	.+1522   	; 0xab6 <gf256mul>
+ 4c4:	b8 2e       	mov	r11, r24
+ 4c6:	bd 24       	eor	r11, r13
+		v = v ^ gf256mul(0x04, tmp[4*i+3] ^ tmp[4*i+1], 0x1b);
+ 4c8:	60 2f       	mov	r22, r16
+ 4ca:	61 27       	eor	r22, r17
+ 4cc:	84 e0       	ldi	r24, 0x04	; 4
+ 4ce:	4b e1       	ldi	r20, 0x1B	; 27
+ 4d0:	f2 d2       	rcall	.+1508   	; 0xab6 <gf256mul>
+ 4d2:	d8 26       	eor	r13, r24
+		state->s[4*i+3] = tmp[4*i+3] ^ v ^ gf256mul(0x02, tmp[4*i+0] ^ tmp[4*i+3], 0x1b);
+ 4d4:	6f 2d       	mov	r22, r15
+ 4d6:	61 27       	eor	r22, r17
+ 4d8:	82 e0       	ldi	r24, 0x02	; 2
+ 4da:	4b e1       	ldi	r20, 0x1B	; 27
+ 4dc:	ec d2       	rcall	.+1496   	; 0xab6 <gf256mul>
+ 4de:	18 27       	eor	r17, r24
+ 4e0:	1d 25       	eor	r17, r13
+ 4e2:	f3 01       	movw	r30, r6
+ 4e4:	13 83       	std	Z+3, r17	; 0x03
+		state->s[4*i+2] = tmp[4*i+2] ^ w ^ gf256mul(0x02, t, 0x1b);
+ 4e6:	82 e0       	ldi	r24, 0x02	; 2
+ 4e8:	6c 2d       	mov	r22, r12
+ 4ea:	4b e1       	ldi	r20, 0x1B	; 27
+ 4ec:	e4 d2       	rcall	.+1480   	; 0xab6 <gf256mul>
+ 4ee:	8e 25       	eor	r24, r14
+ 4f0:	8b 25       	eor	r24, r11
+ 4f2:	d3 01       	movw	r26, r6
+ 4f4:	12 96       	adiw	r26, 0x02	; 2
+ 4f6:	8c 93       	st	X, r24
+		state->s[4*i+1] = tmp[4*i+1] ^ v ^ gf256mul(0x02, tmp[4*i+2] ^ tmp[4*i+1], 0x1b);
+ 4f8:	e0 26       	eor	r14, r16
+ 4fa:	82 e0       	ldi	r24, 0x02	; 2
+ 4fc:	6e 2d       	mov	r22, r14
+ 4fe:	4b e1       	ldi	r20, 0x1B	; 27
+ 500:	da d2       	rcall	.+1460   	; 0xab6 <gf256mul>
+ 502:	08 27       	eor	r16, r24
+ 504:	0d 25       	eor	r16, r13
+ 506:	f3 01       	movw	r30, r6
+ 508:	01 83       	std	Z+1, r16	; 0x01
+		state->s[4*i+0] = tmp[4*i+0] ^ w ^ gf256mul(0x02, u, 0x1b);
+ 50a:	82 e0       	ldi	r24, 0x02	; 2
+ 50c:	69 89       	ldd	r22, Y+17	; 0x11
+ 50e:	4b e1       	ldi	r20, 0x1B	; 27
+ 510:	d2 d2       	rcall	.+1444   	; 0xab6 <gf256mul>
+ 512:	f8 26       	eor	r15, r24
+ 514:	fb 24       	eor	r15, r11
+ 516:	d3 01       	movw	r26, r6
+ 518:	fc 92       	st	X, r15
+ 51a:	e4 e0       	ldi	r30, 0x04	; 4
+ 51c:	f0 e0       	ldi	r31, 0x00	; 0
+ 51e:	8e 0e       	add	r8, r30
+ 520:	9f 1e       	adc	r9, r31
+ 522:	6e 0e       	add	r6, r30
+ 524:	7f 1e       	adc	r7, r31
+	/* keyAdd */
+	for(i=0; i<16; ++i){
+		tmp[i] = state->s[i] ^ k->ks[i];
+	}
+	/* mixColums */
+	for(i=0; i<4; ++i){
+ 526:	8a 8d       	ldd	r24, Y+26	; 0x1a
+ 528:	9b 8d       	ldd	r25, Y+27	; 0x1b
+ 52a:	88 16       	cp	r8, r24
+ 52c:	99 06       	cpc	r9, r25
+ 52e:	09 f0       	breq	.+2      	; 0x532 <aes_decrypt_core+0x1a2>
+ 530:	ae cf       	rjmp	.-164    	; 0x48e <aes_decrypt_core+0xfe>
+			^ gf256mul(0x9, tmp[4*i+2], 0x1b)
+			^ gf256mul(0xe, tmp[4*i+3], 0x1b);
+		*/
+	}	
+	/* shiftRows */
+	aes_invshiftcol(state->s+1, 1);
+ 532:	8a 89       	ldd	r24, Y+18	; 0x12
+ 534:	9b 89       	ldd	r25, Y+19	; 0x13
+ 536:	61 e0       	ldi	r22, 0x01	; 1
+ 538:	df de       	rcall	.-578    	; 0x2f8 <aes_invshiftcol>
+	aes_invshiftcol(state->s+2, 2);
+ 53a:	8c 89       	ldd	r24, Y+20	; 0x14
+ 53c:	9d 89       	ldd	r25, Y+21	; 0x15
+ 53e:	62 e0       	ldi	r22, 0x02	; 2
+ 540:	db de       	rcall	.-586    	; 0x2f8 <aes_invshiftcol>
+	aes_invshiftcol(state->s+3, 3);		
+ 542:	8e 89       	ldd	r24, Y+22	; 0x16
+ 544:	9f 89       	ldd	r25, Y+23	; 0x17
+ 546:	63 e0       	ldi	r22, 0x03	; 3
+ 548:	d7 de       	rcall	.-594    	; 0x2f8 <aes_invshiftcol>
+ 54a:	d2 01       	movw	r26, r4
+ 54c:	80 e0       	ldi	r24, 0x00	; 0
+	/* subBytes */
+	for(i=0; i<16; ++i){
+		state->s[i] = pgm_read_byte(aes_invsbox+state->s[i]);
+ 54e:	ec 91       	ld	r30, X
+ 550:	f0 e0       	ldi	r31, 0x00	; 0
+ 552:	e6 5d       	subi	r30, 0xD6	; 214
+ 554:	ff 4f       	sbci	r31, 0xFF	; 255
+ 556:	e4 91       	lpm	r30, Z+
+ 558:	ed 93       	st	X+, r30
+	/* shiftRows */
+	aes_invshiftcol(state->s+1, 1);
+	aes_invshiftcol(state->s+2, 2);
+	aes_invshiftcol(state->s+3, 3);		
+	/* subBytes */
+	for(i=0; i<16; ++i){
+ 55a:	8f 5f       	subi	r24, 0xFF	; 255
+ 55c:	80 31       	cpi	r24, 0x10	; 16
+ 55e:	b9 f7       	brne	.-18     	; 0x54e <aes_decrypt_core+0x1be>
+}
+
+void aes_decrypt_core(aes_cipher_state_t* state, const aes_genctx_t* ks, uint8_t rounds){
+	uint8_t i;
+	aes_dec_firstround(state, &(ks->key[i=rounds]));
+	for(;rounds>1;--rounds){
+ 560:	91 e0       	ldi	r25, 0x01	; 1
+ 562:	9a 15       	cp	r25, r10
+ 564:	08 f4       	brcc	.+2      	; 0x568 <aes_decrypt_core+0x1d8>
+ 566:	6a cf       	rjmp	.-300    	; 0x43c <aes_decrypt_core+0xac>
+ 568:	20 e0       	ldi	r18, 0x00	; 0
+ 56a:	30 e0       	ldi	r19, 0x00	; 0
+		--i;
+		aes_dec_round(state, &(ks->key[i]));
+	}
+	for(i=0; i<16; ++i){
+		state->s[i] ^= ks->key[0].ks[i];
+ 56c:	e8 8d       	ldd	r30, Y+24	; 0x18
+ 56e:	f9 8d       	ldd	r31, Y+25	; 0x19
+ 570:	e2 0f       	add	r30, r18
+ 572:	f3 1f       	adc	r31, r19
+ 574:	d1 01       	movw	r26, r2
+ 576:	8c 91       	ld	r24, X
+ 578:	90 81       	ld	r25, Z
+ 57a:	89 27       	eor	r24, r25
+ 57c:	f1 01       	movw	r30, r2
+ 57e:	81 93       	st	Z+, r24
+ 580:	1f 01       	movw	r2, r30
+ 582:	2f 5f       	subi	r18, 0xFF	; 255
+ 584:	3f 4f       	sbci	r19, 0xFF	; 255
+	aes_dec_firstround(state, &(ks->key[i=rounds]));
+	for(;rounds>1;--rounds){
+		--i;
+		aes_dec_round(state, &(ks->key[i]));
+	}
+	for(i=0; i<16; ++i){
+ 586:	20 31       	cpi	r18, 0x10	; 16
+ 588:	31 05       	cpc	r19, r1
+ 58a:	81 f7       	brne	.-32     	; 0x56c <aes_decrypt_core+0x1dc>
+		state->s[i] ^= ks->key[0].ks[i];
+	}
+}
+ 58c:	6b 96       	adiw	r28, 0x1b	; 27
+ 58e:	0f b6       	in	r0, 0x3f	; 63
+ 590:	f8 94       	cli
+ 592:	de bf       	out	0x3e, r29	; 62
+ 594:	0f be       	out	0x3f, r0	; 63
+ 596:	cd bf       	out	0x3d, r28	; 61
+ 598:	cf 91       	pop	r28
+ 59a:	df 91       	pop	r29
+ 59c:	1f 91       	pop	r17
+ 59e:	0f 91       	pop	r16
+ 5a0:	ff 90       	pop	r15
+ 5a2:	ef 90       	pop	r14
+ 5a4:	df 90       	pop	r13
+ 5a6:	cf 90       	pop	r12
+ 5a8:	bf 90       	pop	r11
+ 5aa:	af 90       	pop	r10
+ 5ac:	9f 90       	pop	r9
+ 5ae:	8f 90       	pop	r8
+ 5b0:	7f 90       	pop	r7
+ 5b2:	6f 90       	pop	r6
+ 5b4:	5f 90       	pop	r5
+ 5b6:	4f 90       	pop	r4
+ 5b8:	3f 90       	pop	r3
+ 5ba:	2f 90       	pop	r2
+ 5bc:	08 95       	ret
+
+000005be <aes_invshiftrow>:
+#include "aes.h"
+#include "aes_invsbox.h"
+#include "aes_dec.h"
+#include <avr/pgmspace.h>
+
+void aes_invshiftrow(void* data, uint8_t shift){
+ 5be:	df 93       	push	r29
+ 5c0:	cf 93       	push	r28
+ 5c2:	00 d0       	rcall	.+0      	; 0x5c4 <aes_invshiftrow+0x6>
+ 5c4:	00 d0       	rcall	.+0      	; 0x5c6 <aes_invshiftrow+0x8>
+ 5c6:	cd b7       	in	r28, 0x3d	; 61
+ 5c8:	de b7       	in	r29, 0x3e	; 62
+ 5ca:	9c 01       	movw	r18, r24
+ 5cc:	a6 2f       	mov	r26, r22
+	uint8_t tmp[4];
+	tmp[0] = ((uint8_t*)data)[(4+0-shift)&3];
+ 5ce:	b0 e0       	ldi	r27, 0x00	; 0
+ 5d0:	ee 27       	eor	r30, r30
+ 5d2:	ff 27       	eor	r31, r31
+ 5d4:	ea 1b       	sub	r30, r26
+ 5d6:	fb 0b       	sbc	r31, r27
+ 5d8:	e3 70       	andi	r30, 0x03	; 3
+ 5da:	f0 70       	andi	r31, 0x00	; 0
+ 5dc:	e8 0f       	add	r30, r24
+ 5de:	f9 1f       	adc	r31, r25
+ 5e0:	80 81       	ld	r24, Z
+ 5e2:	89 83       	std	Y+1, r24	; 0x01
+	tmp[1] = ((uint8_t*)data)[(4+1-shift)&3];
+ 5e4:	e5 e0       	ldi	r30, 0x05	; 5
+ 5e6:	f0 e0       	ldi	r31, 0x00	; 0
+ 5e8:	ea 1b       	sub	r30, r26
+ 5ea:	fb 0b       	sbc	r31, r27
+ 5ec:	e3 70       	andi	r30, 0x03	; 3
+ 5ee:	f0 70       	andi	r31, 0x00	; 0
+ 5f0:	e2 0f       	add	r30, r18
+ 5f2:	f3 1f       	adc	r31, r19
+ 5f4:	80 81       	ld	r24, Z
+ 5f6:	8a 83       	std	Y+2, r24	; 0x02
+	tmp[2] = ((uint8_t*)data)[(4+2-shift)&3];
+ 5f8:	e6 e0       	ldi	r30, 0x06	; 6
+ 5fa:	f0 e0       	ldi	r31, 0x00	; 0
+ 5fc:	ea 1b       	sub	r30, r26
+ 5fe:	fb 0b       	sbc	r31, r27
+ 600:	e3 70       	andi	r30, 0x03	; 3
+ 602:	f0 70       	andi	r31, 0x00	; 0
+ 604:	e2 0f       	add	r30, r18
+ 606:	f3 1f       	adc	r31, r19
+ 608:	80 81       	ld	r24, Z
+ 60a:	8b 83       	std	Y+3, r24	; 0x03
+	tmp[3] = ((uint8_t*)data)[(4+3-shift)&3];
+ 60c:	a0 95       	com	r26
+ 60e:	b0 95       	com	r27
+ 610:	a3 70       	andi	r26, 0x03	; 3
+ 612:	b0 70       	andi	r27, 0x00	; 0
+ 614:	a2 0f       	add	r26, r18
+ 616:	b3 1f       	adc	r27, r19
+ 618:	8c 91       	ld	r24, X
+ 61a:	8c 83       	std	Y+4, r24	; 0x04
+	memcpy(data, tmp, 4);
+ 61c:	89 81       	ldd	r24, Y+1	; 0x01
+ 61e:	9a 81       	ldd	r25, Y+2	; 0x02
+ 620:	ab 81       	ldd	r26, Y+3	; 0x03
+ 622:	bc 81       	ldd	r27, Y+4	; 0x04
+ 624:	f9 01       	movw	r30, r18
+ 626:	80 83       	st	Z, r24
+ 628:	91 83       	std	Z+1, r25	; 0x01
+ 62a:	a2 83       	std	Z+2, r26	; 0x02
+ 62c:	b3 83       	std	Z+3, r27	; 0x03
+}
+ 62e:	0f 90       	pop	r0
+ 630:	0f 90       	pop	r0
+ 632:	0f 90       	pop	r0
+ 634:	0f 90       	pop	r0
+ 636:	cf 91       	pop	r28
+ 638:	df 91       	pop	r29
+ 63a:	08 95       	ret
+
+0000063c <aes_shiftcol>:
+#include "gf256mul.h"
+#include "aes_sbox.h"
+#include "aes_enc.h"
+#include <avr/pgmspace.h>
+
+void aes_shiftcol(void* data, uint8_t shift){
+ 63c:	df 93       	push	r29
+ 63e:	cf 93       	push	r28
+ 640:	00 d0       	rcall	.+0      	; 0x642 <aes_shiftcol+0x6>
+ 642:	00 d0       	rcall	.+0      	; 0x644 <aes_shiftcol+0x8>
+ 644:	cd b7       	in	r28, 0x3d	; 61
+ 646:	de b7       	in	r29, 0x3e	; 62
+	uint8_t tmp[4];
+	tmp[0] = ((uint8_t*)data)[ 0];
+ 648:	dc 01       	movw	r26, r24
+ 64a:	8c 91       	ld	r24, X
+ 64c:	89 83       	std	Y+1, r24	; 0x01
+	tmp[1] = ((uint8_t*)data)[ 4];
+ 64e:	14 96       	adiw	r26, 0x04	; 4
+ 650:	8c 91       	ld	r24, X
+ 652:	14 97       	sbiw	r26, 0x04	; 4
+ 654:	8a 83       	std	Y+2, r24	; 0x02
+	tmp[2] = ((uint8_t*)data)[ 8];
+ 656:	18 96       	adiw	r26, 0x08	; 8
+ 658:	8c 91       	ld	r24, X
+ 65a:	18 97       	sbiw	r26, 0x08	; 8
+ 65c:	8b 83       	std	Y+3, r24	; 0x03
+	tmp[3] = ((uint8_t*)data)[12];
+ 65e:	1c 96       	adiw	r26, 0x0c	; 12
+ 660:	8c 91       	ld	r24, X
+ 662:	1c 97       	sbiw	r26, 0x0c	; 12
+ 664:	8c 83       	std	Y+4, r24	; 0x04
+	((uint8_t*)data)[ 0] = tmp[(shift+0)&3];
+ 666:	70 e0       	ldi	r23, 0x00	; 0
+ 668:	fb 01       	movw	r30, r22
+ 66a:	e3 70       	andi	r30, 0x03	; 3
+ 66c:	f0 70       	andi	r31, 0x00	; 0
+ 66e:	9e 01       	movw	r18, r28
+ 670:	2f 5f       	subi	r18, 0xFF	; 255
+ 672:	3f 4f       	sbci	r19, 0xFF	; 255
+ 674:	e2 0f       	add	r30, r18
+ 676:	f3 1f       	adc	r31, r19
+ 678:	80 81       	ld	r24, Z
+ 67a:	8c 93       	st	X, r24
+	((uint8_t*)data)[ 4] = tmp[(shift+1)&3];
+ 67c:	fb 01       	movw	r30, r22
+ 67e:	31 96       	adiw	r30, 0x01	; 1
+ 680:	e3 70       	andi	r30, 0x03	; 3
+ 682:	f0 70       	andi	r31, 0x00	; 0
+ 684:	e2 0f       	add	r30, r18
+ 686:	f3 1f       	adc	r31, r19
+ 688:	80 81       	ld	r24, Z
+ 68a:	14 96       	adiw	r26, 0x04	; 4
+ 68c:	8c 93       	st	X, r24
+ 68e:	14 97       	sbiw	r26, 0x04	; 4
+	((uint8_t*)data)[ 8] = tmp[(shift+2)&3];
+ 690:	6e 5f       	subi	r22, 0xFE	; 254
+ 692:	7f 4f       	sbci	r23, 0xFF	; 255
+ 694:	fb 01       	movw	r30, r22
+ 696:	e3 70       	andi	r30, 0x03	; 3
+ 698:	f0 70       	andi	r31, 0x00	; 0
+ 69a:	e2 0f       	add	r30, r18
+ 69c:	f3 1f       	adc	r31, r19
+ 69e:	80 81       	ld	r24, Z
+ 6a0:	18 96       	adiw	r26, 0x08	; 8
+ 6a2:	8c 93       	st	X, r24
+ 6a4:	18 97       	sbiw	r26, 0x08	; 8
+	((uint8_t*)data)[12] = tmp[(shift+3)&3];
+ 6a6:	6f 5f       	subi	r22, 0xFF	; 255
+ 6a8:	7f 4f       	sbci	r23, 0xFF	; 255
+ 6aa:	63 70       	andi	r22, 0x03	; 3
+ 6ac:	70 70       	andi	r23, 0x00	; 0
+ 6ae:	26 0f       	add	r18, r22
+ 6b0:	37 1f       	adc	r19, r23
+ 6b2:	f9 01       	movw	r30, r18
+ 6b4:	80 81       	ld	r24, Z
+ 6b6:	1c 96       	adiw	r26, 0x0c	; 12
+ 6b8:	8c 93       	st	X, r24
+}
+ 6ba:	0f 90       	pop	r0
+ 6bc:	0f 90       	pop	r0
+ 6be:	0f 90       	pop	r0
+ 6c0:	0f 90       	pop	r0
+ 6c2:	cf 91       	pop	r28
+ 6c4:	df 91       	pop	r29
+ 6c6:	08 95       	ret
+
+000006c8 <aes_encrypt_core>:
+	for(i=0; i<16; ++i){
+		state->s[i] ^= k->ks[i];
+	}
+}
+
+void aes_encrypt_core(aes_cipher_state_t* state, const aes_genctx_t* ks, uint8_t rounds){
+ 6c8:	3f 92       	push	r3
+ 6ca:	4f 92       	push	r4
+ 6cc:	5f 92       	push	r5
+ 6ce:	6f 92       	push	r6
+ 6d0:	7f 92       	push	r7
+ 6d2:	8f 92       	push	r8
+ 6d4:	9f 92       	push	r9
+ 6d6:	af 92       	push	r10
+ 6d8:	bf 92       	push	r11
+ 6da:	cf 92       	push	r12
+ 6dc:	df 92       	push	r13
+ 6de:	ef 92       	push	r14
+ 6e0:	ff 92       	push	r15
+ 6e2:	0f 93       	push	r16
+ 6e4:	1f 93       	push	r17
+ 6e6:	df 93       	push	r29
+ 6e8:	cf 93       	push	r28
+ 6ea:	cd b7       	in	r28, 0x3d	; 61
+ 6ec:	de b7       	in	r29, 0x3e	; 62
+ 6ee:	62 97       	sbiw	r28, 0x12	; 18
+ 6f0:	0f b6       	in	r0, 0x3f	; 63
+ 6f2:	f8 94       	cli
+ 6f4:	de bf       	out	0x3e, r29	; 62
+ 6f6:	0f be       	out	0x3f, r0	; 63
+ 6f8:	cd bf       	out	0x3d, r28	; 61
+ 6fa:	5c 01       	movw	r10, r24
+ 6fc:	3b 01       	movw	r6, r22
+ 6fe:	34 2e       	mov	r3, r20
+ 700:	2c 01       	movw	r4, r24
+ 702:	dc 01       	movw	r26, r24
+ 704:	20 e0       	ldi	r18, 0x00	; 0
+ 706:	30 e0       	ldi	r19, 0x00	; 0
+	uint8_t i;
+	for(i=0; i<16; ++i){
+		state->s[i] ^= ks->key[0].ks[i];
+ 708:	f3 01       	movw	r30, r6
+ 70a:	e2 0f       	add	r30, r18
+ 70c:	f3 1f       	adc	r31, r19
+ 70e:	8c 91       	ld	r24, X
+ 710:	90 81       	ld	r25, Z
+ 712:	89 27       	eor	r24, r25
+ 714:	8d 93       	st	X+, r24
+ 716:	2f 5f       	subi	r18, 0xFF	; 255
+ 718:	3f 4f       	sbci	r19, 0xFF	; 255
+	}
+}
+
+void aes_encrypt_core(aes_cipher_state_t* state, const aes_genctx_t* ks, uint8_t rounds){
+	uint8_t i;
+	for(i=0; i<16; ++i){
+ 71a:	20 31       	cpi	r18, 0x10	; 16
+ 71c:	31 05       	cpc	r19, r1
+ 71e:	a1 f7       	brne	.-24     	; 0x708 <aes_encrypt_core+0x40>
+ 720:	01 e0       	ldi	r16, 0x01	; 1
+	/* shiftRows */
+	aes_shiftcol(tmp+1, 1);
+	aes_shiftcol(tmp+2, 2);
+	aes_shiftcol(tmp+3, 3);
+	/* mixColums */
+	for(i=0; i<4; ++i){
+ 722:	ce 01       	movw	r24, r28
+ 724:	41 96       	adiw	r24, 0x11	; 17
+ 726:	9a 8b       	std	Y+18, r25	; 0x12
+ 728:	89 8b       	std	Y+17, r24	; 0x11
+ 72a:	88 c0       	rjmp	.+272    	; 0x83c <aes_encrypt_core+0x174>
+	for(i=0; i<16; ++i){
+		state->s[i] ^= ks->key[0].ks[i];
+	}
+	i=1;
+	for(;rounds>1;--rounds){
+		aes_enc_round(state, &(ks->key[i]));
+ 72c:	47 01       	movw	r8, r14
+ 72e:	94 e0       	ldi	r25, 0x04	; 4
+ 730:	88 0c       	add	r8, r8
+ 732:	99 1c       	adc	r9, r9
+ 734:	9a 95       	dec	r25
+ 736:	e1 f7       	brne	.-8      	; 0x730 <aes_encrypt_core+0x68>
+ 738:	86 0c       	add	r8, r6
+ 73a:	97 1c       	adc	r9, r7
+ 73c:	80 e0       	ldi	r24, 0x00	; 0
+ 73e:	90 e0       	ldi	r25, 0x00	; 0
+void aes_enc_round(aes_cipher_state_t* state, const aes_roundkey_t* k){
+	uint8_t tmp[16], t;
+	uint8_t i;
+	/* subBytes */
+	for(i=0; i<16; ++i){
+		tmp[i] = pgm_read_byte(aes_sbox+state->s[i]);
+ 740:	f5 01       	movw	r30, r10
+ 742:	e8 0f       	add	r30, r24
+ 744:	f9 1f       	adc	r31, r25
+ 746:	e0 81       	ld	r30, Z
+ 748:	f0 e0       	ldi	r31, 0x00	; 0
+ 74a:	ec 5c       	subi	r30, 0xCC	; 204
+ 74c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 74e:	e4 91       	lpm	r30, Z+
+ 750:	a1 e0       	ldi	r26, 0x01	; 1
+ 752:	b0 e0       	ldi	r27, 0x00	; 0
+ 754:	ac 0f       	add	r26, r28
+ 756:	bd 1f       	adc	r27, r29
+ 758:	a8 0f       	add	r26, r24
+ 75a:	b9 1f       	adc	r27, r25
+ 75c:	ec 93       	st	X, r30
+ 75e:	01 96       	adiw	r24, 0x01	; 1
+static
+void aes_enc_round(aes_cipher_state_t* state, const aes_roundkey_t* k){
+	uint8_t tmp[16], t;
+	uint8_t i;
+	/* subBytes */
+	for(i=0; i<16; ++i){
+ 760:	80 31       	cpi	r24, 0x10	; 16
+ 762:	91 05       	cpc	r25, r1
+ 764:	69 f7       	brne	.-38     	; 0x740 <aes_encrypt_core+0x78>
+		tmp[i] = pgm_read_byte(aes_sbox+state->s[i]);
+	}
+	/* shiftRows */
+	aes_shiftcol(tmp+1, 1);
+ 766:	ce 01       	movw	r24, r28
+ 768:	02 96       	adiw	r24, 0x02	; 2
+ 76a:	61 e0       	ldi	r22, 0x01	; 1
+ 76c:	67 df       	rcall	.-306    	; 0x63c <aes_shiftcol>
+	aes_shiftcol(tmp+2, 2);
+ 76e:	ce 01       	movw	r24, r28
+ 770:	03 96       	adiw	r24, 0x03	; 3
+ 772:	62 e0       	ldi	r22, 0x02	; 2
+ 774:	63 df       	rcall	.-314    	; 0x63c <aes_shiftcol>
+	aes_shiftcol(tmp+3, 3);
+ 776:	ce 01       	movw	r24, r28
+ 778:	04 96       	adiw	r24, 0x04	; 4
+ 77a:	63 e0       	ldi	r22, 0x03	; 3
+ 77c:	5f df       	rcall	.-322    	; 0x63c <aes_shiftcol>
+ 77e:	7e 01       	movw	r14, r28
+ 780:	08 94       	sec
+ 782:	e1 1c       	adc	r14, r1
+ 784:	f1 1c       	adc	r15, r1
+ 786:	65 01       	movw	r12, r10
+	/* mixColums */
+	for(i=0; i<4; ++i){
+		t = tmp[4*i+0] ^ tmp[4*i+1] ^ tmp[4*i+2] ^ tmp[4*i+3];
+ 788:	d7 01       	movw	r26, r14
+ 78a:	11 96       	adiw	r26, 0x01	; 1
+ 78c:	6c 91       	ld	r22, X
+ 78e:	11 97       	sbiw	r26, 0x01	; 1
+ 790:	8c 91       	ld	r24, X
+ 792:	68 27       	eor	r22, r24
+ 794:	13 96       	adiw	r26, 0x03	; 3
+ 796:	1c 91       	ld	r17, X
+ 798:	13 97       	sbiw	r26, 0x03	; 3
+ 79a:	12 96       	adiw	r26, 0x02	; 2
+ 79c:	8c 91       	ld	r24, X
+ 79e:	18 27       	eor	r17, r24
+ 7a0:	16 27       	eor	r17, r22
+		state->s[4*i+0] =
+ 7a2:	82 e0       	ldi	r24, 0x02	; 2
+ 7a4:	4b e1       	ldi	r20, 0x1B	; 27
+ 7a6:	87 d1       	rcall	.+782    	; 0xab6 <gf256mul>
+ 7a8:	f7 01       	movw	r30, r14
+ 7aa:	90 81       	ld	r25, Z
+ 7ac:	91 27       	eor	r25, r17
+ 7ae:	98 27       	eor	r25, r24
+ 7b0:	d6 01       	movw	r26, r12
+ 7b2:	9c 93       	st	X, r25
+			  GF256MUL_2(tmp[4*i+0]^tmp[4*i+1])
+			^ tmp[4*i+0]
+			^ t;
+		state->s[4*i+1] =
+ 7b4:	62 81       	ldd	r22, Z+2	; 0x02
+ 7b6:	81 81       	ldd	r24, Z+1	; 0x01
+ 7b8:	68 27       	eor	r22, r24
+ 7ba:	82 e0       	ldi	r24, 0x02	; 2
+ 7bc:	4b e1       	ldi	r20, 0x1B	; 27
+ 7be:	7b d1       	rcall	.+758    	; 0xab6 <gf256mul>
+ 7c0:	f7 01       	movw	r30, r14
+ 7c2:	91 81       	ldd	r25, Z+1	; 0x01
+ 7c4:	91 27       	eor	r25, r17
+ 7c6:	98 27       	eor	r25, r24
+ 7c8:	d6 01       	movw	r26, r12
+ 7ca:	11 96       	adiw	r26, 0x01	; 1
+ 7cc:	9c 93       	st	X, r25
+			  GF256MUL_2(tmp[4*i+1]^tmp[4*i+2])
+			^ tmp[4*i+1]
+			^ t;
+		state->s[4*i+2] =
+ 7ce:	63 81       	ldd	r22, Z+3	; 0x03
+ 7d0:	82 81       	ldd	r24, Z+2	; 0x02
+ 7d2:	68 27       	eor	r22, r24
+ 7d4:	82 e0       	ldi	r24, 0x02	; 2
+ 7d6:	4b e1       	ldi	r20, 0x1B	; 27
+ 7d8:	6e d1       	rcall	.+732    	; 0xab6 <gf256mul>
+ 7da:	f7 01       	movw	r30, r14
+ 7dc:	92 81       	ldd	r25, Z+2	; 0x02
+ 7de:	91 27       	eor	r25, r17
+ 7e0:	98 27       	eor	r25, r24
+ 7e2:	d6 01       	movw	r26, r12
+ 7e4:	12 96       	adiw	r26, 0x02	; 2
+ 7e6:	9c 93       	st	X, r25
+			  GF256MUL_2(tmp[4*i+2]^tmp[4*i+3])
+			^ tmp[4*i+2]
+			^ t;
+		state->s[4*i+3] =
+ 7e8:	60 81       	ld	r22, Z
+ 7ea:	83 81       	ldd	r24, Z+3	; 0x03
+ 7ec:	68 27       	eor	r22, r24
+ 7ee:	82 e0       	ldi	r24, 0x02	; 2
+ 7f0:	4b e1       	ldi	r20, 0x1B	; 27
+ 7f2:	61 d1       	rcall	.+706    	; 0xab6 <gf256mul>
+ 7f4:	f7 01       	movw	r30, r14
+ 7f6:	93 81       	ldd	r25, Z+3	; 0x03
+ 7f8:	19 27       	eor	r17, r25
+ 7fa:	18 27       	eor	r17, r24
+ 7fc:	d6 01       	movw	r26, r12
+ 7fe:	13 96       	adiw	r26, 0x03	; 3
+ 800:	1c 93       	st	X, r17
+ 802:	e4 e0       	ldi	r30, 0x04	; 4
+ 804:	f0 e0       	ldi	r31, 0x00	; 0
+ 806:	ee 0e       	add	r14, r30
+ 808:	ff 1e       	adc	r15, r31
+ 80a:	ce 0e       	add	r12, r30
+ 80c:	df 1e       	adc	r13, r31
+	/* shiftRows */
+	aes_shiftcol(tmp+1, 1);
+	aes_shiftcol(tmp+2, 2);
+	aes_shiftcol(tmp+3, 3);
+	/* mixColums */
+	for(i=0; i<4; ++i){
+ 80e:	89 89       	ldd	r24, Y+17	; 0x11
+ 810:	9a 89       	ldd	r25, Y+18	; 0x12
+ 812:	e8 16       	cp	r14, r24
+ 814:	f9 06       	cpc	r15, r25
+ 816:	09 f0       	breq	.+2      	; 0x81a <aes_encrypt_core+0x152>
+ 818:	b7 cf       	rjmp	.-146    	; 0x788 <aes_encrypt_core+0xc0>
+ 81a:	d5 01       	movw	r26, r10
+ 81c:	20 e0       	ldi	r18, 0x00	; 0
+ 81e:	30 e0       	ldi	r19, 0x00	; 0
+			^ t;
+	}
+
+	/* addKey */
+	for(i=0; i<16; ++i){
+		state->s[i] ^= k->ks[i];
+ 820:	f4 01       	movw	r30, r8
+ 822:	e2 0f       	add	r30, r18
+ 824:	f3 1f       	adc	r31, r19
+ 826:	8c 91       	ld	r24, X
+ 828:	90 81       	ld	r25, Z
+ 82a:	89 27       	eor	r24, r25
+ 82c:	8d 93       	st	X+, r24
+ 82e:	2f 5f       	subi	r18, 0xFF	; 255
+ 830:	3f 4f       	sbci	r19, 0xFF	; 255
+			^ tmp[4*i+3]
+			^ t;
+	}
+
+	/* addKey */
+	for(i=0; i<16; ++i){
+ 832:	20 31       	cpi	r18, 0x10	; 16
+ 834:	31 05       	cpc	r19, r1
+ 836:	a1 f7       	brne	.-24     	; 0x820 <aes_encrypt_core+0x158>
+		state->s[i] ^= ks->key[0].ks[i];
+	}
+	i=1;
+	for(;rounds>1;--rounds){
+		aes_enc_round(state, &(ks->key[i]));
+		++i;
+ 838:	0f 5f       	subi	r16, 0xFF	; 255
+	uint8_t i;
+	for(i=0; i<16; ++i){
+		state->s[i] ^= ks->key[0].ks[i];
+	}
+	i=1;
+	for(;rounds>1;--rounds){
+ 83a:	3a 94       	dec	r3
+ 83c:	e0 2e       	mov	r14, r16
+ 83e:	ff 24       	eor	r15, r15
+ 840:	91 e0       	ldi	r25, 0x01	; 1
+ 842:	93 15       	cp	r25, r3
+ 844:	08 f4       	brcc	.+2      	; 0x848 <aes_encrypt_core+0x180>
+ 846:	72 cf       	rjmp	.-284    	; 0x72c <aes_encrypt_core+0x64>
+		aes_enc_round(state, &(ks->key[i]));
+		++i;
+	}
+	aes_enc_lastround(state, &(ks->key[i]));
+ 848:	d5 01       	movw	r26, r10
+ 84a:	80 e0       	ldi	r24, 0x00	; 0
+static
+void aes_enc_lastround(aes_cipher_state_t* state,const aes_roundkey_t* k){
+	uint8_t i;
+	/* subBytes */
+	for(i=0; i<16; ++i){
+		state->s[i] = pgm_read_byte(aes_sbox+state->s[i]);
+ 84c:	ec 91       	ld	r30, X
+ 84e:	f0 e0       	ldi	r31, 0x00	; 0
+ 850:	ec 5c       	subi	r30, 0xCC	; 204
+ 852:	fe 4f       	sbci	r31, 0xFE	; 254
+ 854:	e4 91       	lpm	r30, Z+
+ 856:	ed 93       	st	X+, r30
+
+static
+void aes_enc_lastround(aes_cipher_state_t* state,const aes_roundkey_t* k){
+	uint8_t i;
+	/* subBytes */
+	for(i=0; i<16; ++i){
+ 858:	8f 5f       	subi	r24, 0xFF	; 255
+ 85a:	80 31       	cpi	r24, 0x10	; 16
+ 85c:	b9 f7       	brne	.-18     	; 0x84c <aes_encrypt_core+0x184>
+		state->s[i] = pgm_read_byte(aes_sbox+state->s[i]);
+	}
+	/* shiftRows */
+	aes_shiftcol(state->s+1, 1);
+ 85e:	c5 01       	movw	r24, r10
+ 860:	01 96       	adiw	r24, 0x01	; 1
+ 862:	61 e0       	ldi	r22, 0x01	; 1
+ 864:	eb de       	rcall	.-554    	; 0x63c <aes_shiftcol>
+	aes_shiftcol(state->s+2, 2);
+ 866:	c5 01       	movw	r24, r10
+ 868:	02 96       	adiw	r24, 0x02	; 2
+ 86a:	62 e0       	ldi	r22, 0x02	; 2
+ 86c:	e7 de       	rcall	.-562    	; 0x63c <aes_shiftcol>
+	aes_shiftcol(state->s+3, 3);
+ 86e:	c5 01       	movw	r24, r10
+ 870:	03 96       	adiw	r24, 0x03	; 3
+ 872:	63 e0       	ldi	r22, 0x03	; 3
+ 874:	e3 de       	rcall	.-570    	; 0x63c <aes_shiftcol>
+ 876:	f7 01       	movw	r30, r14
+ 878:	84 e0       	ldi	r24, 0x04	; 4
+ 87a:	ee 0f       	add	r30, r30
+ 87c:	ff 1f       	adc	r31, r31
+ 87e:	8a 95       	dec	r24
+ 880:	e1 f7       	brne	.-8      	; 0x87a <aes_encrypt_core+0x1b2>
+ 882:	e6 0d       	add	r30, r6
+ 884:	f7 1d       	adc	r31, r7
+ 886:	20 e0       	ldi	r18, 0x00	; 0
+	/* keyAdd */
+	for(i=0; i<16; ++i){
+		state->s[i] ^= k->ks[i];
+ 888:	d2 01       	movw	r26, r4
+ 88a:	8c 91       	ld	r24, X
+ 88c:	91 91       	ld	r25, Z+
+ 88e:	89 27       	eor	r24, r25
+ 890:	8d 93       	st	X+, r24
+ 892:	2d 01       	movw	r4, r26
+	/* shiftRows */
+	aes_shiftcol(state->s+1, 1);
+	aes_shiftcol(state->s+2, 2);
+	aes_shiftcol(state->s+3, 3);
+	/* keyAdd */
+	for(i=0; i<16; ++i){
+ 894:	2f 5f       	subi	r18, 0xFF	; 255
+ 896:	20 31       	cpi	r18, 0x10	; 16
+ 898:	b9 f7       	brne	.-18     	; 0x888 <aes_encrypt_core+0x1c0>
+	for(;rounds>1;--rounds){
+		aes_enc_round(state, &(ks->key[i]));
+		++i;
+	}
+	aes_enc_lastround(state, &(ks->key[i]));
+}
+ 89a:	62 96       	adiw	r28, 0x12	; 18
+ 89c:	0f b6       	in	r0, 0x3f	; 63
+ 89e:	f8 94       	cli
+ 8a0:	de bf       	out	0x3e, r29	; 62
+ 8a2:	0f be       	out	0x3f, r0	; 63
+ 8a4:	cd bf       	out	0x3d, r28	; 61
+ 8a6:	cf 91       	pop	r28
+ 8a8:	df 91       	pop	r29
+ 8aa:	1f 91       	pop	r17
+ 8ac:	0f 91       	pop	r16
+ 8ae:	ff 90       	pop	r15
+ 8b0:	ef 90       	pop	r14
+ 8b2:	df 90       	pop	r13
+ 8b4:	cf 90       	pop	r12
+ 8b6:	bf 90       	pop	r11
+ 8b8:	af 90       	pop	r10
+ 8ba:	9f 90       	pop	r9
+ 8bc:	8f 90       	pop	r8
+ 8be:	7f 90       	pop	r7
+ 8c0:	6f 90       	pop	r6
+ 8c2:	5f 90       	pop	r5
+ 8c4:	4f 90       	pop	r4
+ 8c6:	3f 90       	pop	r3
+ 8c8:	08 95       	ret
+
+000008ca <aes_init>:
+
+const uint8_t rc_tab[] PROGMEM = { 0x01, 0x02, 0x04, 0x08,
+                             0x10, 0x20, 0x40, 0x80,
+                             0x1b, 0x36 };
+
+void aes_init(const void* key, uint16_t keysize_b, aes_genctx_t* ctx){
+ 8ca:	2f 92       	push	r2
+ 8cc:	3f 92       	push	r3
+ 8ce:	4f 92       	push	r4
+ 8d0:	5f 92       	push	r5
+ 8d2:	6f 92       	push	r6
+ 8d4:	7f 92       	push	r7
+ 8d6:	8f 92       	push	r8
+ 8d8:	9f 92       	push	r9
+ 8da:	af 92       	push	r10
+ 8dc:	bf 92       	push	r11
+ 8de:	cf 92       	push	r12
+ 8e0:	df 92       	push	r13
+ 8e2:	ef 92       	push	r14
+ 8e4:	ff 92       	push	r15
+ 8e6:	0f 93       	push	r16
+ 8e8:	1f 93       	push	r17
+ 8ea:	df 93       	push	r29
+ 8ec:	cf 93       	push	r28
+ 8ee:	00 d0       	rcall	.+0      	; 0x8f0 <aes_init+0x26>
+ 8f0:	00 d0       	rcall	.+0      	; 0x8f2 <aes_init+0x28>
+ 8f2:	cd b7       	in	r28, 0x3d	; 61
+ 8f4:	de b7       	in	r29, 0x3e	; 62
+ 8f6:	fc 01       	movw	r30, r24
+ 8f8:	9b 01       	movw	r18, r22
+ 8fa:	f4 2e       	mov	r15, r20
+ 8fc:	e5 2e       	mov	r14, r21
+	uint8_t rc=0;
+	union {
+		uint32_t v32;
+		uint8_t  v8[4];
+	} tmp;
+	nk=keysize_b>>5; /* 4, 6, 8 */
+ 8fe:	8b 01       	movw	r16, r22
+ 900:	55 e0       	ldi	r21, 0x05	; 5
+ 902:	16 95       	lsr	r17
+ 904:	07 95       	ror	r16
+ 906:	5a 95       	dec	r21
+ 908:	e1 f7       	brne	.-8      	; 0x902 <aes_init+0x38>
+ 90a:	90 2e       	mov	r9, r16
+	hi=4*(nk+6+1);
+ 90c:	a0 2e       	mov	r10, r16
+ 90e:	bb 24       	eor	r11, r11
+ 910:	87 e0       	ldi	r24, 0x07	; 7
+ 912:	90 e0       	ldi	r25, 0x00	; 0
+ 914:	a8 0e       	add	r10, r24
+ 916:	b9 1e       	adc	r11, r25
+ 918:	8a 2c       	mov	r8, r10
+ 91a:	88 0c       	add	r8, r8
+ 91c:	88 0c       	add	r8, r8
+ 91e:	89 ef       	ldi	r24, 0xF9	; 249
+ 920:	9f ef       	ldi	r25, 0xFF	; 255
+ 922:	a8 0e       	add	r10, r24
+ 924:	b9 1e       	adc	r11, r25
+	memcpy(ctx, key, keysize_b/8);
+ 926:	43 e0       	ldi	r20, 0x03	; 3
+ 928:	36 95       	lsr	r19
+ 92a:	27 95       	ror	r18
+ 92c:	4a 95       	dec	r20
+ 92e:	e1 f7       	brne	.-8      	; 0x928 <aes_init+0x5e>
+ 930:	8f 2d       	mov	r24, r15
+ 932:	9e 2d       	mov	r25, r14
+ 934:	bf 01       	movw	r22, r30
+ 936:	a9 01       	movw	r20, r18
+ 938:	cb d0       	rcall	.+406    	; 0xad0 <memcpy>
+	next_nk = nk;
+	for(i=nk;i<hi;++i){
+		tmp.v32 = ((uint32_t*)(ctx->key[0].ks))[i-1];
+ 93a:	cf 2c       	mov	r12, r15
+ 93c:	de 2c       	mov	r13, r14
+ 93e:	e0 2e       	mov	r14, r16
+ 940:	ee 0c       	add	r14, r14
+ 942:	f0 2e       	mov	r15, r16
+ 944:	10 e0       	ldi	r17, 0x00	; 0
+#include <avr/pgmspace.h>
+
+static
+void aes_rotword(void* a){
+	uint8_t t;
+	t=((uint8_t*)a)[0];
+ 946:	2e 01       	movw	r4, r28
+ 948:	08 94       	sec
+ 94a:	41 1c       	adc	r4, r1
+ 94c:	51 1c       	adc	r5, r1
+	((uint8_t*)a)[0] = ((uint8_t*)a)[1];
+ 94e:	32 01       	movw	r6, r4
+ 950:	08 94       	sec
+ 952:	61 1c       	adc	r6, r1
+ 954:	71 1c       	adc	r7, r1
+	((uint8_t*)a)[1] = ((uint8_t*)a)[2];
+	((uint8_t*)a)[2] = ((uint8_t*)a)[3];
+ 956:	34 e0       	ldi	r19, 0x04	; 4
+ 958:	23 2e       	mov	r2, r19
+ 95a:	31 2c       	mov	r3, r1
+ 95c:	2c 0e       	add	r2, r28
+ 95e:	3d 1e       	adc	r3, r29
+ 960:	81 c0       	rjmp	.+258    	; 0xa64 <aes_init+0x19a>
+	} tmp;
+	nk=keysize_b>>5; /* 4, 6, 8 */
+	hi=4*(nk+6+1);
+	memcpy(ctx, key, keysize_b/8);
+	next_nk = nk;
+	for(i=nk;i<hi;++i){
+ 962:	6f 2d       	mov	r22, r15
+ 964:	70 e0       	ldi	r23, 0x00	; 0
+		tmp.v32 = ((uint32_t*)(ctx->key[0].ks))[i-1];
+ 966:	fb 01       	movw	r30, r22
+ 968:	e1 50       	subi	r30, 0x01	; 1
+ 96a:	f0 40       	sbci	r31, 0x00	; 0
+ 96c:	ee 0f       	add	r30, r30
+ 96e:	ff 1f       	adc	r31, r31
+ 970:	ee 0f       	add	r30, r30
+ 972:	ff 1f       	adc	r31, r31
+ 974:	ec 0d       	add	r30, r12
+ 976:	fd 1d       	adc	r31, r13
+ 978:	80 81       	ld	r24, Z
+ 97a:	91 81       	ldd	r25, Z+1	; 0x01
+ 97c:	a2 81       	ldd	r26, Z+2	; 0x02
+ 97e:	b3 81       	ldd	r27, Z+3	; 0x03
+ 980:	89 83       	std	Y+1, r24	; 0x01
+ 982:	9a 83       	std	Y+2, r25	; 0x02
+ 984:	ab 83       	std	Y+3, r26	; 0x03
+ 986:	bc 83       	std	Y+4, r27	; 0x04
+		if(i!=next_nk){
+ 988:	f0 16       	cp	r15, r16
+ 98a:	19 f1       	breq	.+70     	; 0x9d2 <aes_init+0x108>
+			if(nk==8 && i%8==4){
+ 98c:	98 e0       	ldi	r25, 0x08	; 8
+ 98e:	99 16       	cp	r9, r25
+ 990:	09 f0       	breq	.+2      	; 0x994 <aes_init+0xca>
+ 992:	45 c0       	rjmp	.+138    	; 0xa1e <aes_init+0x154>
+ 994:	cb 01       	movw	r24, r22
+ 996:	87 70       	andi	r24, 0x07	; 7
+ 998:	90 70       	andi	r25, 0x00	; 0
+ 99a:	04 97       	sbiw	r24, 0x04	; 4
+ 99c:	09 f0       	breq	.+2      	; 0x9a0 <aes_init+0xd6>
+ 99e:	3f c0       	rjmp	.+126    	; 0xa1e <aes_init+0x154>
+				tmp.v8[0] = pgm_read_byte(aes_sbox+tmp.v8[0]);
+ 9a0:	e9 81       	ldd	r30, Y+1	; 0x01
+ 9a2:	f0 e0       	ldi	r31, 0x00	; 0
+ 9a4:	ec 5c       	subi	r30, 0xCC	; 204
+ 9a6:	fe 4f       	sbci	r31, 0xFE	; 254
+ 9a8:	e4 91       	lpm	r30, Z+
+ 9aa:	e9 83       	std	Y+1, r30	; 0x01
+				tmp.v8[1] = pgm_read_byte(aes_sbox+tmp.v8[1]);
+ 9ac:	ea 81       	ldd	r30, Y+2	; 0x02
+ 9ae:	f0 e0       	ldi	r31, 0x00	; 0
+ 9b0:	ec 5c       	subi	r30, 0xCC	; 204
+ 9b2:	fe 4f       	sbci	r31, 0xFE	; 254
+ 9b4:	e4 91       	lpm	r30, Z+
+ 9b6:	ea 83       	std	Y+2, r30	; 0x02
+				tmp.v8[2] = pgm_read_byte(aes_sbox+tmp.v8[2]);
+ 9b8:	eb 81       	ldd	r30, Y+3	; 0x03
+ 9ba:	f0 e0       	ldi	r31, 0x00	; 0
+ 9bc:	ec 5c       	subi	r30, 0xCC	; 204
+ 9be:	fe 4f       	sbci	r31, 0xFE	; 254
+ 9c0:	e4 91       	lpm	r30, Z+
+ 9c2:	eb 83       	std	Y+3, r30	; 0x03
+				tmp.v8[3] = pgm_read_byte(aes_sbox+tmp.v8[3]);
+ 9c4:	ec 81       	ldd	r30, Y+4	; 0x04
+ 9c6:	f0 e0       	ldi	r31, 0x00	; 0
+ 9c8:	ec 5c       	subi	r30, 0xCC	; 204
+ 9ca:	fe 4f       	sbci	r31, 0xFE	; 254
+ 9cc:	e4 91       	lpm	r30, Z+
+ 9ce:	ec 83       	std	Y+4, r30	; 0x04
+ 9d0:	26 c0       	rjmp	.+76     	; 0xa1e <aes_init+0x154>
+void aes_rotword(void* a){
+	uint8_t t;
+	t=((uint8_t*)a)[0];
+	((uint8_t*)a)[0] = ((uint8_t*)a)[1];
+	((uint8_t*)a)[1] = ((uint8_t*)a)[2];
+	((uint8_t*)a)[2] = ((uint8_t*)a)[3];
+ 9d2:	f1 01       	movw	r30, r2
+ 9d4:	20 81       	ld	r18, Z
+	((uint8_t*)a)[3] = t;
+ 9d6:	f2 01       	movw	r30, r4
+ 9d8:	30 81       	ld	r19, Z
+				tmp.v8[3] = pgm_read_byte(aes_sbox+tmp.v8[3]);
+			}
+		} else {
+			next_nk += nk;
+			aes_rotword(&(tmp.v32));
+			tmp.v8[0] = pgm_read_byte(aes_sbox+tmp.v8[0]);
+ 9da:	f3 01       	movw	r30, r6
+ 9dc:	80 81       	ld	r24, Z
+ 9de:	e8 2f       	mov	r30, r24
+ 9e0:	f0 e0       	ldi	r31, 0x00	; 0
+ 9e2:	ec 5c       	subi	r30, 0xCC	; 204
+ 9e4:	fe 4f       	sbci	r31, 0xFE	; 254
+ 9e6:	94 91       	lpm	r25, Z+
+			tmp.v8[1] = pgm_read_byte(aes_sbox+tmp.v8[1]);
+ 9e8:	eb 81       	ldd	r30, Y+3	; 0x03
+ 9ea:	f0 e0       	ldi	r31, 0x00	; 0
+ 9ec:	ec 5c       	subi	r30, 0xCC	; 204
+ 9ee:	fe 4f       	sbci	r31, 0xFE	; 254
+ 9f0:	e4 91       	lpm	r30, Z+
+ 9f2:	ea 83       	std	Y+2, r30	; 0x02
+			tmp.v8[2] = pgm_read_byte(aes_sbox+tmp.v8[2]);
+ 9f4:	e2 2f       	mov	r30, r18
+ 9f6:	f0 e0       	ldi	r31, 0x00	; 0
+ 9f8:	ec 5c       	subi	r30, 0xCC	; 204
+ 9fa:	fe 4f       	sbci	r31, 0xFE	; 254
+ 9fc:	84 91       	lpm	r24, Z+
+ 9fe:	8b 83       	std	Y+3, r24	; 0x03
+			tmp.v8[3] = pgm_read_byte(aes_sbox+tmp.v8[3]);
+ a00:	e3 2f       	mov	r30, r19
+ a02:	f0 e0       	ldi	r31, 0x00	; 0
+ a04:	ec 5c       	subi	r30, 0xCC	; 204
+ a06:	fe 4f       	sbci	r31, 0xFE	; 254
+ a08:	84 91       	lpm	r24, Z+
+ a0a:	8c 83       	std	Y+4, r24	; 0x04
+			tmp.v8[0] ^= pgm_read_byte(rc_tab+rc);
+ a0c:	e1 2f       	mov	r30, r17
+ a0e:	f0 e0       	ldi	r31, 0x00	; 0
+ a10:	e6 5d       	subi	r30, 0xD6	; 214
+ a12:	fe 4f       	sbci	r31, 0xFE	; 254
+ a14:	e4 91       	lpm	r30, Z+
+ a16:	9e 27       	eor	r25, r30
+ a18:	99 83       	std	Y+1, r25	; 0x01
+			rc++;
+ a1a:	1f 5f       	subi	r17, 0xFF	; 255
+ a1c:	0e 2d       	mov	r16, r14
+		}
+		((uint32_t*)(ctx->key[0].ks))[i] = ((uint32_t*)(ctx->key[0].ks))[i-nk]
+ a1e:	66 0f       	add	r22, r22
+ a20:	77 1f       	adc	r23, r23
+ a22:	66 0f       	add	r22, r22
+ a24:	77 1f       	adc	r23, r23
+ a26:	6c 0d       	add	r22, r12
+ a28:	7d 1d       	adc	r23, r13
+ a2a:	ef 2d       	mov	r30, r15
+ a2c:	f0 e0       	ldi	r31, 0x00	; 0
+ a2e:	ea 19       	sub	r30, r10
+ a30:	fb 09       	sbc	r31, r11
+ a32:	ee 0f       	add	r30, r30
+ a34:	ff 1f       	adc	r31, r31
+ a36:	ee 0f       	add	r30, r30
+ a38:	ff 1f       	adc	r31, r31
+ a3a:	ec 0d       	add	r30, r12
+ a3c:	fd 1d       	adc	r31, r13
+ a3e:	80 81       	ld	r24, Z
+ a40:	91 81       	ldd	r25, Z+1	; 0x01
+ a42:	a2 81       	ldd	r26, Z+2	; 0x02
+ a44:	b3 81       	ldd	r27, Z+3	; 0x03
+ a46:	29 81       	ldd	r18, Y+1	; 0x01
+ a48:	3a 81       	ldd	r19, Y+2	; 0x02
+ a4a:	4b 81       	ldd	r20, Y+3	; 0x03
+ a4c:	5c 81       	ldd	r21, Y+4	; 0x04
+ a4e:	82 27       	eor	r24, r18
+ a50:	93 27       	eor	r25, r19
+ a52:	a4 27       	eor	r26, r20
+ a54:	b5 27       	eor	r27, r21
+ a56:	fb 01       	movw	r30, r22
+ a58:	80 83       	st	Z, r24
+ a5a:	91 83       	std	Z+1, r25	; 0x01
+ a5c:	a2 83       	std	Z+2, r26	; 0x02
+ a5e:	b3 83       	std	Z+3, r27	; 0x03
+	} tmp;
+	nk=keysize_b>>5; /* 4, 6, 8 */
+	hi=4*(nk+6+1);
+	memcpy(ctx, key, keysize_b/8);
+	next_nk = nk;
+	for(i=nk;i<hi;++i){
+ a60:	f3 94       	inc	r15
+ a62:	e3 94       	inc	r14
+ a64:	f8 14       	cp	r15, r8
+ a66:	08 f4       	brcc	.+2      	; 0xa6a <aes_init+0x1a0>
+ a68:	7c cf       	rjmp	.-264    	; 0x962 <aes_init+0x98>
+			rc++;
+		}
+		((uint32_t*)(ctx->key[0].ks))[i] = ((uint32_t*)(ctx->key[0].ks))[i-nk]
+		                                   ^ tmp.v32;
+	}
+}
+ a6a:	0f 90       	pop	r0
+ a6c:	0f 90       	pop	r0
+ a6e:	0f 90       	pop	r0
+ a70:	0f 90       	pop	r0
+ a72:	cf 91       	pop	r28
+ a74:	df 91       	pop	r29
+ a76:	1f 91       	pop	r17
+ a78:	0f 91       	pop	r16
+ a7a:	ff 90       	pop	r15
+ a7c:	ef 90       	pop	r14
+ a7e:	df 90       	pop	r13
+ a80:	cf 90       	pop	r12
+ a82:	bf 90       	pop	r11
+ a84:	af 90       	pop	r10
+ a86:	9f 90       	pop	r9
+ a88:	8f 90       	pop	r8
+ a8a:	7f 90       	pop	r7
+ a8c:	6f 90       	pop	r6
+ a8e:	5f 90       	pop	r5
+ a90:	4f 90       	pop	r4
+ a92:	3f 90       	pop	r3
+ a94:	2f 90       	pop	r2
+ a96:	08 95       	ret
+
+00000a98 <aes256_init>:
+
+void aes192_init(const void* key, aes192_ctx_t* ctx){
+	aes_init(key, 192, (aes_genctx_t*)ctx);
+}
+
+void aes256_init(const void* key, aes256_ctx_t* ctx){
+ a98:	ab 01       	movw	r20, r22
+	aes_init(key, 256, (aes_genctx_t*)ctx);
+ a9a:	60 e0       	ldi	r22, 0x00	; 0
+ a9c:	71 e0       	ldi	r23, 0x01	; 1
+ a9e:	15 df       	rcall	.-470    	; 0x8ca <aes_init>
+}
+ aa0:	08 95       	ret
+
+00000aa2 <aes192_init>:
+
+void aes128_init(const void* key, aes128_ctx_t* ctx){
+	aes_init(key, 128, (aes_genctx_t*)ctx);
+}
+
+void aes192_init(const void* key, aes192_ctx_t* ctx){
+ aa2:	ab 01       	movw	r20, r22
+	aes_init(key, 192, (aes_genctx_t*)ctx);
+ aa4:	60 ec       	ldi	r22, 0xC0	; 192
+ aa6:	70 e0       	ldi	r23, 0x00	; 0
+ aa8:	10 df       	rcall	.-480    	; 0x8ca <aes_init>
+}
+ aaa:	08 95       	ret
+
+00000aac <aes128_init>:
+		((uint32_t*)(ctx->key[0].ks))[i] = ((uint32_t*)(ctx->key[0].ks))[i-nk]
+		                                   ^ tmp.v32;
+	}
+}
+
+void aes128_init(const void* key, aes128_ctx_t* ctx){
+ aac:	ab 01       	movw	r20, r22
+	aes_init(key, 128, (aes_genctx_t*)ctx);
+ aae:	60 e8       	ldi	r22, 0x80	; 128
+ ab0:	70 e0       	ldi	r23, 0x00	; 0
+ ab2:	0b df       	rcall	.-490    	; 0x8ca <aes_init>
+}
+ ab4:	08 95       	ret
+
+00000ab6 <gf256mul>:
+P = 24
+.global gf256mul
+
+#ifdef OPTIMIZE_SMALL_A
+gf256mul:
+	mov A, r24
+ ab6:	78 2f       	mov	r23, r24
+	clr r24
+ ab8:	88 27       	eor	r24, r24
+1:	
+	lsr A
+ aba:	76 95       	lsr	r23
+	breq 4f
+ abc:	31 f0       	breq	.+12     	; 0xaca <gf256mul+0x14>
+	brcc 2f
+ abe:	08 f4       	brcc	.+2      	; 0xac2 <gf256mul+0xc>
+	eor P, B
+ ac0:	86 27       	eor	r24, r22
+2:
+	lsl B
+ ac2:	66 0f       	add	r22, r22
+	brcc 3f
+ ac4:	08 f4       	brcc	.+2      	; 0xac8 <gf256mul+0x12>
+	eor B, r20	
+ ac6:	64 27       	eor	r22, r20
+3:
+	rjmp 1b
+ ac8:	f8 cf       	rjmp	.-16     	; 0xaba <gf256mul+0x4>
+4:
+	brcc 2f
+ aca:	08 f4       	brcc	.+2      	; 0xace <gf256mul+0x18>
+	eor P, B
+ acc:	86 27       	eor	r24, r22
+2:
+	ret
+ ace:	08 95       	ret
+
+00000ad0 <memcpy>:
+ ad0:	fb 01       	movw	r30, r22
+ ad2:	dc 01       	movw	r26, r24
+ ad4:	02 c0       	rjmp	.+4      	; 0xada <memcpy+0xa>
+ ad6:	01 90       	ld	r0, Z+
+ ad8:	0d 92       	st	X+, r0
+ ada:	41 50       	subi	r20, 0x01	; 1
+ adc:	50 40       	sbci	r21, 0x00	; 0
+ ade:	d8 f7       	brcc	.-10     	; 0xad6 <memcpy+0x6>
+ ae0:	08 95       	ret
+
+00000ae2 <_exit>:
+ ae2:	f8 94       	cli
+
+00000ae4 <__stop_program>:
+ ae4:	ff cf       	rjmp	.-2      	; 0xae4 <__stop_program>

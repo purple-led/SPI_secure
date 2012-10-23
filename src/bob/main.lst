@@ -1,0 +1,416 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	lcd_com
+  18               	lcd_com:
+  19               	.LFB9:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	.LM2:
+  25 0000 D898      		cbi 59-32,0
+  26               	.LM3:
+  27 0002 DA9A      		sbi 59-32,2
+  28               	.LM4:
+  29 0004 85BB      		out 53-32,r24
+  30               	.LBB72:
+  31               	.LBB73:
+  32               	.LBB74:
+  33               	.LBB75:
+  34               	.LM5:
+  35 0006 91E2      		ldi r25,lo8(33)
+  36               	.LVL1:
+  37               	/* #APP */
+  38               	 ;  83 "/usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/include/util/delay_basi
+  39 0008 9A95      		1: dec r25
+  40 000a 01F4      		brne 1b
+  41               	 ;  0 "" 2
+  42               	/* #NOAPP */
+  43               	.LBE75:
+  44               	.LBE74:
+  45               	.LBE73:
+  46               	.LBE72:
+  47               	.LM6:
+  48 000c DA98      		cbi 59-32,2
+  49               	.LM7:
+  50 000e 8150      		subi r24,lo8(-(-1))
+  51               	.LVL2:
+  52 0010 8230      		cpi r24,lo8(2)
+  53 0012 00F4      		brsh .L2
+  54               	.LBB76:
+  55               	.LBB77:
+  56               	.LBB78:
+  57               	.LBB79:
+  58               	.LBB80:
+  59               	.LBB81:
+  60               	.LM8:
+  61 0014 82EC      		ldi r24,lo8(450)
+  62 0016 91E0      		ldi r25,hi8(450)
+  63               	.LVL3:
+  64               	/* #APP */
+  65               	 ;  105 "/usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/include/util/delay_bas
+  66 0018 0197      		1: sbiw r24,1
+  67 001a 01F4      		brne 1b
+  68               	 ;  0 "" 2
+  69               	/* #NOAPP */
+  70 001c 0895      		ret
+  71               	.LVL4:
+  72               	.L2:
+  73               	.LBE81:
+  74               	.LBE80:
+  75               	.LBE79:
+  76               	.LBE78:
+  77               	.LBE77:
+  78               	.LBE76:
+  79               	.LBB82:
+  80               	.LBB83:
+  81               	.LBB84:
+  82               	.LBB85:
+  83               	.LM9:
+  84 001e 80E1      		ldi r24,lo8(16)
+  85               	.LVL5:
+  86               	/* #APP */
+  87               	 ;  83 "/usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/include/util/delay_basi
+  88 0020 8A95      		1: dec r24
+  89 0022 01F4      		brne 1b
+  90               	 ;  0 "" 2
+  91               	/* #NOAPP */
+  92 0024 0895      		ret
+  93               	.LBE85:
+  94               	.LBE84:
+  95               	.LBE83:
+  96               	.LBE82:
+  97               	.LFE9:
+  99               	.global	lcd_dat
+ 101               	lcd_dat:
+ 102               	.LFB10:
+ 103               	.LM10:
+ 104               	.LVL6:
+ 105               	/* prologue: function */
+ 106               	/* frame size = 0 */
+ 107               	.LM11:
+ 108 0026 D89A      		sbi 59-32,0
+ 109               	.LM12:
+ 110 0028 DA9A      		sbi 59-32,2
+ 111               	.LM13:
+ 112 002a 85BB      		out 53-32,r24
+ 113               	.LBB86:
+ 114               	.LBB87:
+ 115               	.LBB88:
+ 116               	.LBB89:
+ 117               	.LM14:
+ 118 002c 81E2      		ldi r24,lo8(33)
+ 119               	.LVL7:
+ 120               	/* #APP */
+ 121               	 ;  83 "/usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/include/util/delay_basi
+ 122 002e 8A95      		1: dec r24
+ 123 0030 01F4      		brne 1b
+ 124               	 ;  0 "" 2
+ 125               	/* #NOAPP */
+ 126               	.LBE89:
+ 127               	.LBE88:
+ 128               	.LBE87:
+ 129               	.LBE86:
+ 130               	.LM15:
+ 131 0032 DA98      		cbi 59-32,2
+ 132               	.LBB90:
+ 133               	.LBB91:
+ 134               	.LBB92:
+ 135               	.LBB93:
+ 136               	.LM16:
+ 137 0034 80E1      		ldi r24,lo8(16)
+ 138               	.LVL8:
+ 139               	/* #APP */
+ 140               	 ;  83 "/usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/include/util/delay_basi
+ 141 0036 8A95      		1: dec r24
+ 142 0038 01F4      		brne 1b
+ 143               	 ;  0 "" 2
+ 144               	/* epilogue start */
+ 145               	/* #NOAPP */
+ 146               	.LBE93:
+ 147               	.LBE92:
+ 148               	.LBE91:
+ 149               	.LBE90:
+ 150               	.LM17:
+ 151 003a 0895      		ret
+ 152               	.LFE10:
+ 154               	.global	lcd_init
+ 156               	lcd_init:
+ 157               	.LFB12:
+ 158               	.LM18:
+ 159               	/* prologue: function */
+ 160               	/* frame size = 0 */
+ 161               	.LM19:
+ 162 003c 88E0      		ldi r24,lo8(8)
+ 163 003e 00D0      		rcall lcd_com
+ 164               	.LM20:
+ 165 0040 88E3      		ldi r24,lo8(56)
+ 166 0042 00D0      		rcall lcd_com
+ 167               	.LM21:
+ 168 0044 81E0      		ldi r24,lo8(1)
+ 169 0046 00D0      		rcall lcd_com
+ 170               	.LM22:
+ 171 0048 86E0      		ldi r24,lo8(6)
+ 172 004a 00D0      		rcall lcd_com
+ 173               	.LM23:
+ 174 004c 8DE0      		ldi r24,lo8(13)
+ 175 004e 00D0      		rcall lcd_com
+ 176               	/* epilogue start */
+ 177               	.LM24:
+ 178 0050 0895      		ret
+ 179               	.LFE12:
+ 181               	.global	lcd_clr
+ 183               	lcd_clr:
+ 184               	.LFB13:
+ 185               	.LM25:
+ 186               	/* prologue: function */
+ 187               	/* frame size = 0 */
+ 188               	.LM26:
+ 189 0052 81E0      		ldi r24,lo8(1)
+ 190 0054 00D0      		rcall lcd_com
+ 191               	/* epilogue start */
+ 192               	.LM27:
+ 193 0056 0895      		ret
+ 194               	.LFE13:
+ 196               	.global	lcd_curs
+ 198               	lcd_curs:
+ 199               	.LFB14:
+ 200               	.LM28:
+ 201               	.LVL9:
+ 202               	/* prologue: function */
+ 203               	/* frame size = 0 */
+ 204               	.LM29:
+ 205 0058 8230      		cpi r24,lo8(2)
+ 206 005a 00F4      		brsh .L13
+ 207 005c 6031      		cpi r22,lo8(16)
+ 208 005e 00F4      		brsh .L13
+ 209               	.LM30:
+ 210 0060 8295      		swap r24
+ 211               	.LVL10:
+ 212 0062 880F      		lsl r24
+ 213 0064 880F      		lsl r24
+ 214 0066 807C      		andi r24,lo8(-64)
+ 215 0068 680F      		add r22,r24
+ 216               	.LVL11:
+ 217 006a 862F      		mov r24,r22
+ 218               	.LVL12:
+ 219 006c 8058      		subi r24,lo8(-(-128))
+ 220 006e 00D0      		rcall lcd_com
+ 221               	.LVL13:
+ 222               	.L13:
+ 223 0070 0895      		ret
+ 224               	.LFE14:
+ 226               	.global	lcd_write
+ 228               	lcd_write:
+ 229               	.LFB11:
+ 230               	.LM31:
+ 231               	.LVL14:
+ 232 0072 EF92      		push r14
+ 233 0074 FF92      		push r15
+ 234 0076 0F93      		push r16
+ 235 0078 1F93      		push r17
+ 236 007a CF93      		push r28
+ 237 007c DF93      		push r29
+ 238               	/* prologue: function */
+ 239               	/* frame size = 0 */
+ 240 007e 7C01      		movw r14,r24
+ 241               	.LM32:
+ 242 0080 DC01      		movw r26,r24
+ 243 0082 0D90      		ld __tmp_reg__,X+
+ 244 0084 0020      		tst __tmp_reg__
+ 245 0086 01F4      		brne .-6
+ 246 0088 8D01      		movw r16,r26
+ 247               	.LVL15:
+ 248 008a 0150      		subi r16,lo8(-(-1))
+ 249 008c 1040      		sbci r17,hi8(-(-1))
+ 250 008e 081B      		sub r16,r24
+ 251 0090 190B      		sbc r17,r25
+ 252 0092 C0E0      		ldi r28,lo8(0)
+ 253 0094 D0E0      		ldi r29,hi8(0)
+ 254               	.LVL16:
+ 255 0096 00C0      		rjmp .L15
+ 256               	.L16:
+ 257               	.LM33:
+ 258 0098 F701      		movw r30,r14
+ 259 009a EC0F      		add r30,r28
+ 260 009c FD1F      		adc r31,r29
+ 261 009e 8081      		ld r24,Z
+ 262               	.LVL17:
+ 263 00a0 00D0      		rcall lcd_dat
+ 264 00a2 2196      		adiw r28,1
+ 265               	.LVL18:
+ 266               	.L15:
+ 267 00a4 C017      		cp r28,r16
+ 268 00a6 D107      		cpc r29,r17
+ 269 00a8 04F0      		brlt .L16
+ 270               	.LVL19:
+ 271               	/* epilogue start */
+ 272               	.LM34:
+ 273 00aa DF91      		pop r29
+ 274 00ac CF91      		pop r28
+ 275               	.LVL20:
+ 276 00ae 1F91      		pop r17
+ 277 00b0 0F91      		pop r16
+ 278               	.LVL21:
+ 279 00b2 FF90      		pop r15
+ 280 00b4 EF90      		pop r14
+ 281 00b6 0895      		ret
+ 282               	.LFE11:
+ 284               		.data
+ 285               	.LC0:
+ 286 0000 2020 2053 		.string	"   SPI secure   "
+ 286      5049 2073 
+ 286      6563 7572 
+ 286      6520 2020 
+ 286      00
+ 287               		.text
+ 288               	.global	init
+ 290               	init:
+ 291               	.LFB15:
+ 292               	.LM35:
+ 293               	/* prologue: function */
+ 294               	/* frame size = 0 */
+ 295               	.LM36:
+ 296 00b8 D09A      		sbi 58-32,0
+ 297               	.LM37:
+ 298 00ba D19A      		sbi 58-32,1
+ 299               	.LM38:
+ 300 00bc D29A      		sbi 58-32,2
+ 301               	.LM39:
+ 302 00be 1BBA      		out 59-32,__zero_reg__
+ 303               	.LM40:
+ 304 00c0 8FEF      		ldi r24,lo8(-1)
+ 305 00c2 84BB      		out 52-32,r24
+ 306               	.LM41:
+ 307 00c4 15BA      		out 53-32,__zero_reg__
+ 308               	.LM42:
+ 309 00c6 00D0      		rcall lcd_init
+ 310               	.LM43:
+ 311 00c8 8CE0      		ldi r24,lo8(12)
+ 312 00ca 00D0      		rcall lcd_com
+ 313               	.LM44:
+ 314 00cc 80E0      		ldi r24,lo8(0)
+ 315 00ce 60E0      		ldi r22,lo8(0)
+ 316 00d0 00D0      		rcall lcd_curs
+ 317               	.LM45:
+ 318 00d2 80E0      		ldi r24,lo8(.LC0)
+ 319 00d4 90E0      		ldi r25,hi8(.LC0)
+ 320 00d6 00D0      		rcall lcd_write
+ 321               	.LM46:
+ 322 00d8 81E0      		ldi r24,lo8(1)
+ 323 00da 60E0      		ldi r22,lo8(0)
+ 324 00dc 00D0      		rcall lcd_curs
+ 325 00de 8FEF      		ldi r24,lo8(-1)
+ 326 00e0 9FEF      		ldi r25,hi8(-1)
+ 327               	.LVL22:
+ 328               	.LBB94:
+ 329               	.LBB95:
+ 330               	.LBB96:
+ 331               	.LBB97:
+ 332               	.LM47:
+ 333 00e2 29E1      		ldi r18,lo8(25)
+ 334 00e4 30E0      		ldi r19,hi8(25)
+ 335               	.L19:
+ 336 00e6 F901      		movw r30,r18
+ 337               	.LVL23:
+ 338               	/* #APP */
+ 339               	 ;  105 "/usr/local/CrossPack-AVR-20100115/lib/gcc/avr/4.3.3/../../../../avr/include/util/delay_bas
+ 340 00e8 3197      		1: sbiw r30,1
+ 341 00ea 01F4      		brne 1b
+ 342               	 ;  0 "" 2
+ 343               	/* #NOAPP */
+ 344               	.LBE97:
+ 345               	.LBE96:
+ 346               	.LM48:
+ 347 00ec 0197      		sbiw r24,1
+ 348               	.LM49:
+ 349 00ee 01F4      		brne .L19
+ 350               	.LBE95:
+ 351               	.LBE94:
+ 352               	.LM50:
+ 353 00f0 00D0      		rcall lcd_clr
+ 354               	.LVL24:
+ 355               	.LBB98:
+ 356               	.LBB99:
+ 357               	.LM51:
+ 358 00f2 BE9A      		sbi 55-32,6
+ 359               	.LM52:
+ 360 00f4 6E9A      		sbi 45-32,6
+ 361               	.LBE99:
+ 362               	.LBE98:
+ 363               	.LM53:
+ 364 00f6 80E0      		ldi r24,lo8(key)
+ 365 00f8 90E0      		ldi r25,hi8(key)
+ 366 00fa 60E0      		ldi r22,lo8(ctx)
+ 367 00fc 70E0      		ldi r23,hi8(ctx)
+ 368 00fe 00D0      		rcall aes128_init
+ 369               	/* epilogue start */
+ 370               	.LM54:
+ 371 0100 0895      		ret
+ 372               	.LFE15:
+ 374               	.global	main
+ 376               	main:
+ 377               	.LFB16:
+ 378               	.LM55:
+ 379               	/* prologue: function */
+ 380               	/* frame size = 0 */
+ 381               	.LM56:
+ 382 0102 00D0      		rcall init
+ 383               	.LM57:
+ 384 0104 80E0      		ldi r24,lo8(0)
+ 385 0106 90E0      		ldi r25,hi8(0)
+ 386               	/* epilogue start */
+ 387 0108 0895      		ret
+ 388               	.LFE16:
+ 390               	.global	key
+ 391               		.data
+ 394               	key:
+ 395 0011 01        		.byte	1
+ 396 0012 23        		.byte	35
+ 397 0013 45        		.byte	69
+ 398 0014 67        		.byte	103
+ 399 0015 89        		.byte	-119
+ 400 0016 AB        		.byte	-85
+ 401 0017 CD        		.byte	-51
+ 402 0018 EF        		.byte	-17
+ 403 0019 01        		.byte	1
+ 404 001a 23        		.byte	35
+ 405 001b 45        		.byte	69
+ 406 001c 67        		.byte	103
+ 407 001d 89        		.byte	-119
+ 408 001e AB        		.byte	-85
+ 409 001f CD        		.byte	-51
+ 410 0020 EF        		.byte	-17
+ 411               		.comm data,16,1
+ 412               		.comm ctx,176,1
+ 493               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:2      *ABS*:0000003f __SREG__
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:3      *ABS*:0000003e __SP_H__
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:4      *ABS*:0000003d __SP_L__
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:5      *ABS*:00000034 __CCP__
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:18     .text:00000000 lcd_com
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:101    .text:00000026 lcd_dat
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:156    .text:0000003c lcd_init
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:183    .text:00000052 lcd_clr
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:198    .text:00000058 lcd_curs
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:228    .text:00000072 lcd_write
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:290    .text:000000b8 init
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:394    .data:00000011 key
+                            *COM*:000000b0 ctx
+/var/folders/nj/ppgbdtvx2ggf2zr90g6_2bsc0000gn/T//ccfBvmrn.s:376    .text:00000102 main
+                            *COM*:00000010 data
+
+UNDEFINED SYMBOLS
+aes128_init
+__do_copy_data
+__do_clear_bss
