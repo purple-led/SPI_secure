@@ -12,6 +12,9 @@
 MCU = atmega8535
 # MCU = attiny45
 
+# Clock speed of microcontrollers
+CLOCK = 8000000
+
 # Target file name (without extension).
 TARGET = main
 
@@ -21,8 +24,8 @@ TARGET = main
 AVRDUDE_PROGRAMMER = avr910 
 # AVRDUDE_PROGRAMMER = dt006
 
-AVRDUDE_PORT = /dev/cu.usbmodem411    # not really needed for usb 
-#AVRDUDE_PORT = /dev/parport0           # linux
+#AVRDUDE_PORT = /dev/cu.usbmodem411    # not really needed for usb 
+AVRDUDE_PORT = /dev/ttyACM0	       # linux
 # AVRDUDE_PORT = lpt1		       # windows
 
 ############# Don't need to change below here for most purposes  (Elliot)
@@ -212,7 +215,7 @@ LST = $(ASRC:.S=.lst) $(SRC:.c=.lst)
 
 # Combine all necessary flags and optional flags.
 # Add target processor to flags.
-ALL_CFLAGS = -mmcu=$(MCU) -I. $(CFLAGS)
+ALL_CFLAGS = -Wall -Os -DF_CPU=$(CLOCK) -mmcu=$(MCU) -I. $(CFLAGS)
 ALL_ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
 
 

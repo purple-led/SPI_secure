@@ -56,7 +56,7 @@ int main(void)
 		}
 		else set_true(PORTC, PC0);
 		
-		//spi_sync(check);
+		spi_sync(check);
 		_delay_ms(50);
 	}
 
