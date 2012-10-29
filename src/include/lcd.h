@@ -1,8 +1,6 @@
 #ifndef _LCD_H_
 #define _LCD_H_
 
-#include <string.h>
-
 #define LCD_RS PA0
 #define LCD_RW PA1
 #define LCD_EN PA2
@@ -37,9 +35,9 @@ void lcd_dat(uint8_t p)
 	_delay_us(50); //pause for execution
 }
 
-void lcd_write(char * string)
+void lcd_write(uint8_t * string)
 {
-	int i = 0, count = strlen(string);
+	int i = 0, count = strlen((char *)string);
 	for(i = 0; i < count; i ++) lcd_dat(string[i]);
 }
 

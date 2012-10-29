@@ -25,7 +25,7 @@ AVRDUDE_PROGRAMMER = avr910
 # AVRDUDE_PROGRAMMER = dt006
 
 #AVRDUDE_PORT = /dev/cu.usbmodem411    # not really needed for usb 
-AVRDUDE_PORT = /dev/ttyACM0	       # linux
+AVRDUDE_PORT = /dev/ttyACM0            # linux
 # AVRDUDE_PORT = lpt1		       # windows
 
 ############# Don't need to change below here for most purposes  (Elliot)
