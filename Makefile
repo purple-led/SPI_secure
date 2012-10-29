@@ -12,6 +12,9 @@
 MCU = atmega8535
 # MCU = attiny45
 
+# Clock speed of microcontrollers
+CLOCK = 8000000
+
 # Target file name (without extension).
 TARGET = main
 
@@ -21,8 +24,8 @@ TARGET = main
 AVRDUDE_PROGRAMMER = avr910 
 # AVRDUDE_PROGRAMMER = dt006
 
-AVRDUDE_PORT = /dev/cu.usbmodem411    # not really needed for usb 
-#AVRDUDE_PORT = /dev/parport0           # linux
+#AVRDUDE_PORT = /dev/cu.usbmodem411    # not really needed for usb 
+AVRDUDE_PORT = /dev/ttyACM0	       # linux
 # AVRDUDE_PORT = lpt1		       # windows
 
 ############# Don't need to change below here for most purposes  (Elliot)
@@ -34,8 +37,15 @@ OPT = s
 # Output format. (can be srec, ihex, binary)
 FORMAT = ihex
 
+BASEDIR = .
+SRCDIR = $(BASEDIR)/src
+BUILDDIR = $(BASEDIR)/build
+TARGETDIR = $(SRCDIR)/alice
+
 # List C source files here. (C dependencies are automatically generated.)
-SRC = $(TARGET).c aes128_dec.c aes128_enc.c aes_dec.c aes_enc.c aes_invsbox.c aes_keyschedule.c aes_sbox.c
+SRC = $(TARGETDIR)/$(TARGET).c
+#aes128_dec.c aes128_enc.c aes_dec.c aes_enc.c aes_invsbox.c aes_keyschedule.c aes_sbox.c
+SRC += $(wildcard $(SRCDIR)/aes/*.c)
 
 # If there is more than one source file, append them above, or modify and
 # uncomment the following:
@@ -46,7 +56,6 @@ SRC = $(TARGET).c aes128_dec.c aes128_enc.c aes_dec.c aes_enc.c aes_invsbox.c ae
 #xyzzy.c
 
 
-
 # List Assembler source files here.
 # Make them always end in a capital .S.  Files ending in a lowercase .s
 # will not be considered source files but generated files (assembler
@@ -54,12 +63,13 @@ SRC = $(TARGET).c aes128_dec.c aes128_enc.c aes_dec.c aes_enc.c aes_invsbox.c ae
 # Even though the DOS/Win* filesystem matches both .s and .S the same,
 # it will preserve the spelling of the filenames, and gcc itself does
 # care about how the name is spelled on its command-line.
-ASRC = gf256mul.S 
+ASRC = $(SRCDIR)/aes/gf256mul.S
+#= $(wildcard ../aes/*.S)
 
 
 # List any extra directories to look for include files here.
 #     Each directory must be seperated by a space.
-EXTRAINCDIRS = gf256mul 
+EXTRAINCDIRS = $(SRCDIR)/include
 
 
 # Optional compiler flags.
@@ -210,7 +220,7 @@ LST = $(ASRC:.S=.lst) $(SRC:.c=.lst)
 
 # Combine all necessary flags and optional flags.
 # Add target processor to flags.
-ALL_CFLAGS = -mmcu=$(MCU) -I. $(CFLAGS)
+ALL_CFLAGS = -Wall -Os -DF_CPU=$(CLOCK) -mmcu=$(MCU) -I. $(CFLAGS)
 ALL_ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
 
 
