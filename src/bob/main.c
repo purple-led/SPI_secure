@@ -59,6 +59,7 @@ void init(void)
 int main(void)
 {
 	uint8_t need_to_recv = 1, lcd_buf[32], pkg_buf[100];
+	uint8_t lcd_ampl = 0;
  
 	init();
  
@@ -75,6 +76,11 @@ int main(void)
 			sprintf((char *) lcd_buf, "[%s]", (char *) pkg_buf);
 			lcd_clr();
 			lcd_write(lcd_buf);
+
+			lcd_ampl = strlen((char *) lcd_buf) - 16;
+			if(lcd_ampl) lcd_there_back(0, lcd_ampl, 3333);
+			lcd_curs(1, 0);
+			lcd_write("Oooopsss....");
 		}
 		_delay_ms(50);
 	}

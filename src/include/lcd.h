@@ -8,6 +8,8 @@
 #define LCD_PORT_CONF PORTA
 #define LCD_PORT PORTC
 
+#define LCD_LEFT_RIGHT_DELAY_MS 400
+
 /* Input command in LCD */
 void lcd_com(uint8_t p)
 {
@@ -55,6 +57,45 @@ void lcd_init()
 void lcd_clr()
 {
 	lcd_com(0x01);
+}
+
+/* Shift LCD. If (dir) shift left, else right */
+void lcd_shift(uint8_t dir)
+{
+	dir = dir == 0 ? 0 : 1;
+	lcd_com((1 << 4) | (1 << 3) | (dir << 2));
+}
+
+/**
+* LCD moves there and back.
+* Arguments: dir - primary direction,
+*	     ampl - amplitude,
+*	     count_per - amount of periods.
+**/
+
+void lcd_there_back(uint8_t dir, uint8_t ampl, int count_per)
+{
+	if(!count_per || !ampl) return 0;
+
+	uint8_t i = 0;
+	dir = dir == 0 ? 0 : 1;
+	count_per = 2 * count_per - 1;
+	
+	while(1)
+	{
+		if(i >= ampl)
+		{
+			i = 0;
+			dir = dir == 1 ? 0 : 1;
+		
+			if(count_per) count_per --;
+			else break;
+		}
+
+		lcd_shift(dir);
+		_delay_ms(LCD_LEFT_RIGHT_DELAY_MS);
+		i ++;
+	}
 }
 
 /* Moving cursor */

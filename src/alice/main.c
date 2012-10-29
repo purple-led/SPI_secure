@@ -39,7 +39,7 @@ void init(void)
 int main(void)
 {
 	uint8_t need_to_send = 1;
-	uint8_t first_pkg[] = "Hello, everybody here!";
+	uint8_t first_pkg[] = "Hello, everybody! I'm SPI secure!";
  
 	init();
  
