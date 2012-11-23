@@ -9,19 +9,11 @@
 #include "lcd.h"
 #include "aes.h"
 #include "spi.h"
-
-#define BLOCK_SIZE 16
-
-uint8_t key[]  = { 0x01, 0x23, 0x45, 0x67,
-                   0x89, 0xAB, 0xCD, 0xEF,
-                   0x01, 0x23, 0x45, 0x67,
-                   0x89, 0xAB, 0xCD, 0xEF };
-
-uint8_t data[BLOCK_SIZE]; 
+#include "difhel.h"
 
 aes128_ctx_t ctx;
 
-void init(void)
+void init()
 {
 	/* For LCD */
 	set_true(DDRA, LCD_RS); //RC is output
@@ -31,58 +23,76 @@ void init(void)
 	DDRC = 0xff; //PC0-7 are output
 	PORTC = 0x00; //zero in output	
 
+	/* For check LED */
+	set_true(DDRD, 7);
+	set_true(PORTD, 7);
+
 	lcd_init();
 	lcd_com(0x0C);
 	
-	/* For check LED */
-	set_true(DDRD, 6);
-	set_true(PORTD, 6);
-
 	/* Greeting */
 	lcd_curs(0, 0);
 	lcd_write((uint8_t *)"  \"SPI secure\"  ");
 	lcd_curs(1, 0);
 
 	lcd_write((uint8_t *)"--___--___--___-");	
-	_delay_ms(1500);
-
-	/* For aes */
-	aes128_init(key, &ctx);
 	
 	/* Init to connect */
-	spi_init_slave();
+	spi_set_slave();
 	
-	/* Ready to work  */
+	/* Ready to work */
+	set_true(SREG, 7); // All interrupts are enabled.
+	_delay_ms(1500);
 	lcd_clr();
 }
 
-int main(void)
+int main()
 {
-	uint8_t need_to_recv = 1, lcd_buf[32], pkg_buf[100];
+	uint8_t lcd_buf[80], pkg_buf[1][64];
 	uint8_t lcd_ampl = 0;
- 
+	uint8_t key[16];
+
 	init();
- 
+
+	/* Getting private key by Diffie-Hellman algorithm with tricky method */
+	while(0)
+	{
+		if(!read_bit(PINB, SS))
+		{
+			set_false(PORTD, PD6);			
+
+			difhel_private_key(key, 128);
+			aes128_init(key, &ctx);
+
+			sprintf(lcd_buf, "My SPCR %x", SPCR);
+			lcd_write(lcd_buf);
+			set_true(PORTD, PD6);
+			break;
+		}
+		else set_true(PORTD, PD6);
+
+		_delay_us(50);
+	}
+
+	/* Getting encrypted data and decoding */
 	while(1)
 	{
-		if (need_to_recv)
-		{
-			need_to_recv = 0;
-				
-			//receive_package(pkg_buf);
-			aes_receive_package(pkg_buf, &ctx);
-			set_false(PORTD, PD6);
+		set_false(PORTD, 7);
 
-			sprintf((char *) lcd_buf, "[%s]", (char *) pkg_buf);
-			lcd_clr();
-			lcd_write(lcd_buf);
+		//aes_receive_package(pkg_buf[0], &ctx);
+		receive_package(pkg_buf[0]);
+			
+		sprintf(lcd_buf, "%s", pkg_buf[0]);
 
-			lcd_ampl = strlen((char *) lcd_buf) - 16;
-			if(lcd_ampl) lcd_there_back(0, lcd_ampl, 3333);
-			lcd_curs(1, 0);
-			lcd_write("Oooopsss....");
-		}
-		_delay_ms(50);
+		lcd_clr();
+		lcd_write(lcd_buf);
+	
+		//lcd_ampl = 20;//strlen((char *) lcd_buf) - 16;
+		//if(lcd_ampl) lcd_there_back(0, 16, 1 << 16);
+		
+		set_true(PORTD, 7);
+	
+		_delay_ms(5000);
 	}
 	
 	return 0;

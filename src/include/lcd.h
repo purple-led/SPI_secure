@@ -75,7 +75,7 @@ void lcd_shift(uint8_t dir)
 
 void lcd_there_back(uint8_t dir, uint8_t ampl, int count_per)
 {
-	if(!count_per || !ampl) return 0;
+	if(!count_per || !ampl) return;
 
 	uint8_t i = 0;
 	dir = dir == 0 ? 0 : 1;
