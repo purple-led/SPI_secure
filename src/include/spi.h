@@ -72,8 +72,6 @@ inline uint8_t sync_byte(uint8_t byte)
 	}
 	else
 	{
-		spi_sleep();		
-
 		set_true(DDRB, MISO);
 		set_true(PORTB, MISO);
 		set_false(DDRB, MOSI);
