@@ -65,7 +65,7 @@ inline uint8_t sync_byte(uint8_t byte)
 
 		while(!read_bit(PINB, MISO));
 		
-		_delay_us(50);
+		_delay_ms(2);
 		set_false(PORTB, MOSI);
 
 		spi_init_master();
@@ -78,7 +78,7 @@ inline uint8_t sync_byte(uint8_t byte)
 
 		while(!read_bit(PINB, MOSI));
 	
-		_delay_us(25);
+		_delay_ms(1);
 		set_false(PORTB, MISO);		
 
 		spi_init_slave();
@@ -107,13 +107,13 @@ inline void receive_block(uint8_t * block)
 	for(i = 0; i < 16; i ++) block[i] = sync_byte(0);
 }
 
-inline void send_package(uint8_t * pkg)
+void send_package(uint8_t * pkg)
 {
 	void * ctx;
 	_send_package(pkg, 0, ctx);
 }
 
-inline void aes_send_package(uint8_t * pkg, void * ctx)
+void aes_send_package(uint8_t * pkg, void * ctx)
 {
 	_send_package(pkg, 1, ctx);
 }
@@ -144,13 +144,13 @@ inline void _send_package(uint8_t * pkg, uint8_t check_aes, void * ctx)
 	send_block(aes_block);
 }
 
-inline void receive_package(uint8_t * pkg)
+void receive_package(uint8_t * pkg)
 {
 	void * ctx;
 	_receive_package(pkg, 0, ctx);
 }
 
-inline void aes_receive_package(uint8_t * pkg, void * ctx)
+void aes_receive_package(uint8_t * pkg, void * ctx)
 {
 	_receive_package(pkg, 1, ctx);
 }

@@ -1,3 +1,0 @@
-
-Compiling: main.c
-avr-gcc -c -Wall -Os -DF_CPU=8000000 -mmcu=atmega8535 -I. -g -Os -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums -Wall -Wstrict-prototypes -Wa,-adhlns=main.lst -I../include -std=gnu99 main.c -o main.o

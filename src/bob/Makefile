@@ -31,8 +31,9 @@ AVRDUDE_PORT = /dev/ttyACM0            # linux
 ############# Don't need to change below here for most purposes  (Elliot)
 
 # Optimization level, can be [0, 1, 2, 3, s]. 0 turns off optimization.
+
 # (Note: 3 is not always the best optimization level. See avr-libc FAQ.)
-OPT = s
+OPT = 1
 
 # Output format. (can be srec, ihex, binary)
 FORMAT = ihex
