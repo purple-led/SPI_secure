@@ -15,6 +15,9 @@ aes128_ctx_t ctx;
 
 void init()
 {
+	/* Init srand(RANDOM_VALUE_FROM_NOISE) */
+	srand_init();
+	
 	/* For LCD */
 	set_true(DDRA, LCD_RS); //RC is output
 	set_true(DDRA, LCD_RW); //RW is output
@@ -39,7 +42,7 @@ void init()
 	
 	/* Init to connect */
 	spi_set_slave();
-	
+		
 	/* Ready to work */
 	sei(); // All interrupts are enabled.
 	_delay_ms(1500);

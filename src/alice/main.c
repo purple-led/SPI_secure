@@ -15,6 +15,9 @@ aes128_ctx_t ctx;
 
 void init()
 {
+	/* Init srand(RANDOM_VALUE_FROM_NOISE) */
+	srand_init();
+	
 	/* For button */
 	set_false(DDRD, 7);
 	set_true(PORTD, 7); // gets extra resistance of 100 kOhm
@@ -34,10 +37,12 @@ int main()
 		"Hello, everybody! I'm SPI secure!",
 		"After each click send 1 msg."     ,
 		"This is the third msg from Alice.",
+		"I have made this several weeks :(",
+		"We need to detect time of trans.",
 		"We need a keyboard to write msg."
 	};
 	
-	uint8_t i = 0, count_free_pkg = 4;
+	uint8_t i = 0, count_free_pkg = 6;
 	uint8_t key[16];
 
 	init();
