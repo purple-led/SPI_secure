@@ -51,9 +51,11 @@ void init()
 
 int main()
 {
-	uint8_t lcd_buf[80], pkg_buf[1][64];
+	uint8_t lcd_buf[80], pkg_buf[64];
 	uint8_t lcd_ampl = 0;
 	uint8_t key[16];
+	
+	memset(key, 0, 16);
 
 	init();
 
@@ -62,21 +64,33 @@ int main()
 
 	difhel_private_key(key, 128);
 	aes128_init(key, &ctx);
+	
+	int i = 0;
+
+	while(i < 4)
+	{
+		sprintf(lcd_buf, "[%d][%d]\0", i, get_part_key(key, i));
+		lcd_clr();
+		lcd_write(lcd_buf);
+		
+		i ++;
+		_delay_ms(2500);
+	}
 
 	/* Getting encrypted data and decoding */
 	while(1)
 	{
 		set_false(PORTD, 7);
 
-		aes_receive_package(pkg_buf[0], &ctx);
-		//receive_package(pkg_buf[0]);
+		aes_receive_package(pkg_buf, &ctx);
+		//receive_package(pkg_buf);
 		
-		sprintf(lcd_buf, "%s", pkg_buf[0]);
+		sprintf(lcd_buf, "[%s]", pkg_buf);
 		
 		lcd_clr();
 		lcd_write(lcd_buf);
 		set_true(PORTD, 7);
-		
+	
 		lcd_ampl = strlen((char *) lcd_buf) - 16;
 		if(lcd_ampl) lcd_there_back(0, lcd_ampl, 1);
 		

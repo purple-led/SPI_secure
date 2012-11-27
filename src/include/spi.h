@@ -10,22 +10,22 @@
 
 uint8_t spi_mstr = 0;
 
-inline void spi_set_master()
+void spi_set_master()
 {
 	spi_mstr = 1;
 }
 
-inline void spi_set_slave()
+void spi_set_slave()
 {
 	spi_mstr = 0;
 }
 
-inline uint8_t spi_is_master()
+uint8_t spi_is_master()
 {
 	return spi_mstr;
 }
 
-inline void spi_init_master()
+void spi_init_master()
 {
 	set_true(DDRB, MOSI);
 	set_true(DDRB, SCK);
@@ -37,7 +37,7 @@ inline void spi_init_master()
 	set_true(SPCR, SPE);  // SPI is enabled.
 }
 
-inline void spi_init_slave()
+void spi_init_slave()
 {
 	set_true(DDRB, MISO);
 
@@ -45,14 +45,14 @@ inline void spi_init_slave()
 	set_true(SPCR, SPE);  // SPI is enabled.
 }
 
-inline void spi_final()
+void spi_final()
 {
 	SPCR = 0;
 }
 
 ISR(SPI_STC_vect){}
 
-inline uint8_t sync_byte(uint8_t byte)
+uint8_t sync_byte(uint8_t byte)
 {
 	cli();
 
@@ -95,13 +95,13 @@ inline uint8_t sync_byte(uint8_t byte)
 	return byte;
 }
 
-inline void send_block(uint8_t * block)
+void send_block(uint8_t * block)
 {
 	uint8_t i;
 	for(i = 0; i < 16; i ++) sync_byte(block[i]);
 }
 
-inline void receive_block(uint8_t * block)
+void receive_block(uint8_t * block)
 {
 	uint8_t i;
 	for(i = 0; i < 16; i ++) block[i] = sync_byte(0);
@@ -118,7 +118,7 @@ void aes_send_package(uint8_t * pkg, void * ctx)
 	_send_package(pkg, 1, ctx);
 }
 
-inline void _send_package(uint8_t * pkg, uint8_t check_aes, void * ctx)
+void _send_package(uint8_t * pkg, uint8_t check_aes, void * ctx)
 {
 	int i, length = strlen((char *) pkg);
 	uint8_t k, aes_block[16];
@@ -155,7 +155,7 @@ void aes_receive_package(uint8_t * pkg, void * ctx)
 	_receive_package(pkg, 1, ctx);
 }
 
-inline void _receive_package(uint8_t * pkg, uint8_t check_aes, void * ctx)
+void _receive_package(uint8_t * pkg, uint8_t check_aes, void * ctx)
 {
 	int i = 0;
 	uint8_t k, check_end, aes_block[16];
@@ -189,8 +189,8 @@ inline void _receive_package(uint8_t * pkg, uint8_t check_aes, void * ctx)
 	}
 }
 
-/* Maybe once you will use this funstions */
-
+/* Maybe once you will use this functions */
+/*
 uint8_t spi_sleep_spcr = 0;
 
 struct
@@ -201,13 +201,13 @@ struct
 	uint8_t point;
 } spi_buf;
 
-inline void spi_sleep()
+void spi_sleep()
 {
 	spi_sleep_spcr = SPCR;
 	SPCR = 0;
 }
 
-inline void spi_wake_up()
+void spi_wake_up()
 {
 	SPCR = spi_sleep_spcr;
 
@@ -223,14 +223,14 @@ inline void spi_wake_up()
 	}
 }
 
-inline void spi_buf_init()
+void spi_buf_init()
 {
 	spi_buf.cap = 100;
 	spi_buf.count = 0;
 	spi_buf.point = 0;
 }
 
-inline uint8_t spi_buf_pull()
+uint8_t spi_buf_pull()
 {
 	if(spi_buf.count == 0) return 0;
 
@@ -240,7 +240,7 @@ inline uint8_t spi_buf_pull()
 	return spi_buf.arr[(spi_buf.cap - 1 + spi_buf.point) % spi_buf.cap];
 }
 
-inline void spi_buf_push(uint8_t byte)
+void spi_buf_push(uint8_t byte)
 {
 	if(spi_buf.count != spi_buf.cap)
 	{
@@ -249,10 +249,10 @@ inline void spi_buf_push(uint8_t byte)
 	}
 }
 
-inline uint8_t spi_buf_is_empty()
+uint8_t spi_buf_is_empty()
 {
 	return spi_buf.count == 0 ? 1 : 0;
 }
-
+*/
 #endif // SPI H
 

@@ -32,18 +32,18 @@ void init()
 
 int main()
 {
+	uint8_t i = 0, count_free_pkg = 4;
+	uint8_t key[16], pkg_buf[50];
 	uint8_t free_pkg[][40] =
 	{
 		"Hello, everybody! I'm SPI secure!",
 		"After each click send 1 msg."     ,
 		"This is the third msg from Alice.",
-		"I have made this several weeks :(",
-		"We need to detect time of trans.",
-		"We need a keyboard to write msg."
+		"We need to detect time of trans."
 	};
 	
-	uint8_t i = 0, count_free_pkg = 6;
-	uint8_t key[16];
+	memset(key, 0, 16);
+	memset(pkg_buf, 0, 50);
 
 	init();
 
@@ -53,8 +53,8 @@ int main()
 		if(!read_bit(PIND, 7))
 		{	
 			set_false(PORTC, 0);
-			difhel_private_key(&key, 128);
-			aes128_init(&key, &ctx);
+			difhel_private_key(key, 128);
+			aes128_init(key, &ctx);
 
 			set_true(PORTC, 0);	
 			break;
@@ -70,7 +70,9 @@ int main()
 		if (!read_bit(PIND, 7))
 		{
 			set_false(PORTC, 0);
-
+	
+			//sprintf(pkg_buf, "<%d><%d>", i, get_part_key(key, i));
+			//send_package(pkg_buf);//free_pkg[i]);
 			aes_send_package(free_pkg[i], &ctx);
 
 			i = (i + 1) % count_free_pkg;
