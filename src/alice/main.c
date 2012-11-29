@@ -42,6 +42,11 @@ int main()
 		"We need to detect time of trans."
 	};
 	
+	uint8_t test_pkg[][16] =
+	{
+		"aaaabbbbccccdddd"
+	};
+
 	memset(key, 0, 16);
 	memset(pkg_buf, 0, 50);
 
@@ -53,10 +58,11 @@ int main()
 		if(!read_bit(PIND, 7))
 		{	
 			set_false(PORTC, 0);
-			difhel_private_key(key, 128);
+			difhel_private_key(key, (uint16_t) 128);
 			aes128_init(key, &ctx);
 
-			set_true(PORTC, 0);	
+			set_true(PORTC, 0);
+			_delay_ms(100);	
 			break;
  		}
 		else set_true(PORTC, 0);
@@ -71,7 +77,7 @@ int main()
 		{
 			set_false(PORTC, 0);
 	
-			//sprintf(pkg_buf, "<%d><%d>", i, get_part_key(key, i));
+			//sprintf(pkg_buf, "<%d><%lu>", i, get_part_key(key, i));
 			//send_package(pkg_buf);//free_pkg[i]);
 			aes_send_package(free_pkg[i], &ctx);
 
@@ -80,6 +86,12 @@ int main()
 		else set_true(PORTC, 0);
 		
 		_delay_ms(100);
+	}
+
+	/* Time test */
+	while(0)
+	{
+		
 	}
 
 	return 0;

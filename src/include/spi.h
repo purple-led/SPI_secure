@@ -13,11 +13,15 @@ uint8_t spi_mstr = 0;
 void spi_set_master()
 {
 	spi_mstr = 1;
+	set_true(DDRB, MOSI);
+	set_false(DDRB, MISO);
 }
 
 void spi_set_slave()
 {
 	spi_mstr = 0;
+	set_true(DDRB, MISO);
+	set_false(DDRB, MOSI);
 }
 
 uint8_t spi_is_master()
@@ -119,9 +123,9 @@ void aes_send_package(uint8_t * pkg, void * ctx)
 }
 
 void _send_package(uint8_t * pkg, uint8_t check_aes, void * ctx)
-{
-	int i, length = strlen((char *) pkg);
-	uint8_t k, aes_block[16];
+{ 
+	uint8_t aes_block[16];
+	uint16_t i, k, length = strlen((char *) pkg);
 
 	for(i = 0; i < length >> 4; i ++)
 	{
@@ -157,9 +161,9 @@ void aes_receive_package(uint8_t * pkg, void * ctx)
 
 void _receive_package(uint8_t * pkg, uint8_t check_aes, void * ctx)
 {
-	int i = 0;
-	uint8_t k, check_end, aes_block[16];
-	
+	uint8_t check_end, aes_block[16];
+	uint16_t i = 0, k;	
+
 	while(1)
 	{
 		receive_block(aes_block);
