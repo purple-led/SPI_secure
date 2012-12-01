@@ -51,20 +51,34 @@ void init()
 
 int main()
 {
+	uint8_t pkg_head = 0, key[16];
 	uint8_t lcd_buf[80], pkg_buf[64];
 	int16_t lcd_ampl = 0;
-	uint8_t key[16];
 	
-	memset(key, 0, sizeof(uint8_t)*16);
+	memset(key, 0, 16 * sizeof(uint8_t));
 
 	init();
 	
+	/* Click to receive */
+	lcd_clr();
+	lcd_write((uint8_t *) "Click to receive");
+	lcd_curs(1, 0);
+	lcd_write((uint8_t *) "key by DiffHell");
+	_delay_ms(500);
+
 	/* Getting private key by Diffie-Hellman algorithm with tricky method */
 	set_false(PORTD, 7);
 	
 	difhel_private_key(key, (uint16_t) 128);
 	aes128_init(key, &ctx);
-	_delay_ms(50);
+	set_true(PORTD, 7)
+;
+	/* Key was received */
+	lcd_clr();
+	lcd_write((uint8_t *) "Key was received");
+	lcd_curs(1, 0);
+	lcd_write((uint8_t *) "Click on button");
+	_delay_ms(500);
 /*
 	int i = 0;
 
@@ -75,27 +89,25 @@ int main()
 		lcd_write(lcd_buf);
 		_delay_ms(3000);
 	}
-*/	
-	set_true(PORTD, 7);
-	
+*/		
 	/* Getting encrypted data and decoding */
 	while(1)
 	{
 		set_false(PORTD, 7);
-
-		aes_receive_package(pkg_buf, &ctx);
-		//receive_package(pkg_buf);
-		
-		sprintf(lcd_buf, "[%s]", pkg_buf);
-		
-		lcd_clr();
-		lcd_write(lcd_buf);
+		receive_package(pkg_buf, &pkg_head, &ctx);
 		set_true(PORTD, 7);
-	
-		lcd_ampl = strlen((char *) lcd_buf) - 16;
-		if(lcd_ampl > 0) lcd_there_back(0, lcd_ampl, 1);
+
+		if(!read_bit(pkg_head, 5))
+		{
+			sprintf(lcd_buf, "%s", pkg_buf);
 		
-		_delay_ms(50);
+			lcd_clr();
+			lcd_write(lcd_buf);
+
+			lcd_ampl = strlen((char *) lcd_buf) - 16;
+			if(lcd_ampl > 0) lcd_there_back(0, lcd_ampl, 1);
+			_delay_ms(50);
+		}
 	}
 	
 	return 0;

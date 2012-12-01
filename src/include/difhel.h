@@ -80,7 +80,6 @@ void difhel_private_key(uint8_t * key, uint16_t key_length)
 
 		for(k = 0; k < count_byte_key; k ++)
 		{
-			//if (i == key_length) get_byte_of_number(key + k, pr_key, count_byte_key - 1 - k);
 			get_byte_of_number(key + (i * count_byte_key + k), pr_key, count_byte_key - 1 - k);
 		}
 	}

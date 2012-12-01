@@ -20,7 +20,7 @@ void srand_init()
 	ADMUX |= 1 << ADLAR; // Left adjusted result.
 	ADMUX |= (1 << MUX2) | (1 << MUX1) | (1 << MUX0); // Read signal from 7 pin of port A.
 
-	ADCSRA = (1 << ADPS2) | (1 << ADPS1) | (0 << ADPS0); // Frequency division is 64;
+	ADCSRA = (1 << ADPS2) | (1 << ADPS1) | (0 << ADPS0); // Frequency division is 64.
 	ADCSRA |= (1 << ADEN) | (1 << ADSC); // ADC is enabled and conversation is started.
 
 	while(1)

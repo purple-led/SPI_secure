@@ -69,7 +69,7 @@ uint8_t sync_byte(uint8_t byte)
 
 		while(!read_bit(PINB, MISO));
 		
-		_delay_ms(2);
+		_delay_us(100);
 		set_false(PORTB, MOSI);
 
 		spi_init_master();
@@ -82,7 +82,7 @@ uint8_t sync_byte(uint8_t byte)
 
 		while(!read_bit(PINB, MOSI));
 	
-		_delay_ms(1);
+		_delay_us(50);
 		set_false(PORTB, MISO);		
 
 		spi_init_slave();
@@ -113,65 +113,71 @@ void receive_block(uint8_t * block)
 
 void send_package(uint8_t * pkg)
 {
-	void * ctx;
+	void * ctx;	
 	_send_package(pkg, 0, ctx);
+}
+
+void send_package_invis(uint8_t * pkg)
+{
+	void * ctx;
+	_send_package(pkg, (1 << 5), ctx);
 }
 
 void aes_send_package(uint8_t * pkg, void * ctx)
 {
-	_send_package(pkg, 1, ctx);
+	_send_package(pkg, (1 << 7), ctx);
 }
 
-void _send_package(uint8_t * pkg, uint8_t check_aes, void * ctx)
+void aes_send_package_invis(uint8_t * pkg, void * ctx)
+{
+	_send_package(pkg, (1 << 7) | (1 << 5), ctx);
+}
+
+void _send_package(uint8_t * pkg, uint8_t head, void * ctx)
 { 
-	uint8_t aes_block[16];
-	uint16_t i, k, length = strlen((char *) pkg);
+	uint8_t k, is_aes = read_bit(head, 7);
+	uint8_t block[16];
+	uint16_t i, length = strlen((char *) pkg);
+
+	sync_byte(head);
 
 	for(i = 0; i < length >> 4; i ++)
 	{
-		for(k = 0; k < 16; k ++) aes_block[k] = pkg[(i << 4) + k];
+		for(k = 0; k < 16; k ++) block[k] = pkg[(i << 4) + k];
 		
-		if(check_aes) aes128_enc(aes_block, ctx);
-		send_block(aes_block);
+		if(is_aes) aes128_enc(block, ctx);
+		send_block(block);
 	}
 
 	if(i << 4 != length)
 	{
-		for(k = 0; k < length - (i << 4); k++) aes_block[k] = pkg[(i << 4) + k];
-		for(; k < 16; k ++) aes_block[k] = ENC_EMPTY_SPACE;
+		for(k = 0; k < length - (i << 4); k++) block[k] = pkg[(i << 4) + k];
+		for(; k < 16; k ++) block[k] = ENC_EMPTY_SPACE;
 	
-		if(check_aes) aes128_enc(aes_block, ctx);
-		send_block(aes_block);
+		if(is_aes) aes128_enc(block, ctx);
+		send_block(block);
 	}
 	
-	for(k = 0; k < 16; k ++) aes_block[k] = 0xff;
-	send_block(aes_block);
+	for(k = 0; k < 16; k ++) block[k] = 0xff;
+	send_block(block);
 }
 
-void receive_package(uint8_t * pkg)
+void receive_package(uint8_t * pkg, uint8_t * head, void * ctx)
 {
-	void * ctx;
-	_receive_package(pkg, 0, ctx);
-}
+	uint8_t is_aes, is_end, block[16];
+	uint16_t i = 0, k;
 
-void aes_receive_package(uint8_t * pkg, void * ctx)
-{
-	_receive_package(pkg, 1, ctx);
-}
-
-void _receive_package(uint8_t * pkg, uint8_t check_aes, void * ctx)
-{
-	uint8_t check_end, aes_block[16];
-	uint16_t i = 0, k;	
+	*head = sync_byte(0);
+	is_aes = read_bit(*head, 7);
 
 	while(1)
 	{
-		receive_block(aes_block);
+		receive_block(block);
 
-		check_end = 1;
-		for(k = 0; k < 16; k ++) if(aes_block[k] != 0xff) {check_end = 0; break;}
+		is_end = 1;
+		for(k = 0; k < 16; k ++) if(block[k] != 0xff) {is_end = 0; break;}
 		
-		if(check_end && i)
+		if(is_end && i)
 		{
 			i --;
 
@@ -184,10 +190,10 @@ void _receive_package(uint8_t * pkg, uint8_t check_aes, void * ctx)
 
 			break;
 		}
-		else if(check_end && !i) pkg[0] = '\0';
+		else if(is_end && !i) pkg[0] = '\0';
 
-		if(check_aes) aes128_dec(aes_block, ctx);
-		for(k = 0; k < 16; k ++) pkg[(i << 4) + k] = aes_block[k];
+		if(is_aes) aes128_dec(block, ctx);
+		for(k = 0; k < 16; k ++) pkg[(i << 4) + k] = block[k];
 
 		i ++;
 	}
