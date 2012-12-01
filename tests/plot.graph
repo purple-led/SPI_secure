@@ -1,0 +1,11 @@
+#!/usr/bin/gnuplot -persist
+
+set terminal postscript enhanced color
+set output "plot.ps"
+
+set xlabel "size, bytes"
+set ylabel "time, ms"
+set grid
+
+plot "time_tests.dat" using 1:2 with linespoints title "AES",\
+"time_tests.dat" using 1:3 with linespoints title "No encryption"
